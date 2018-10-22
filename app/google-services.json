@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "455574387126",
+    "firebase_url": "https://botanico-50074.firebaseio.com",
+    "project_id": "botanico-50074",
+    "storage_bucket": "botanico-50074.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:455574387126:android:5bef502f012155a6",
+        "android_client_info": {
+          "package_name": "hr.foi.air1817.botanico"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "455574387126-q6671n7fiaupv6038babmnlqetflchk7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hr.foi.air1817.botanico",
+            "certificate_hash": "e584a2a9b926bb76d3bc0a72536297e988e8f8a3"
+          }
+        },
+        {
+          "client_id": "455574387126-181ccgu8covra1r5ik6l7ekurekqg6d6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPzgcFRF2QgHqrJ9FE3R5Nat0cangptao"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "455574387126-181ccgu8covra1r5ik6l7ekurekqg6d6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
