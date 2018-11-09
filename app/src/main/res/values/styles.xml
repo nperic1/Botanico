@@ -12,4 +12,8 @@
         <item name="android:textColorPrimary">@color/textPrimary</item>
     </style>
 
+    <style name="BotanicoTheme.Launcher">
+        <item name="android:windowBackground">@drawable/launch_screen</item>
+    </style>
+
 </resources>
