@@ -1,5 +1,6 @@
 package hr.foi.air1817.botanico;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -7,6 +8,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,13 +25,20 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import hr.foi.air1817.botanico.adapters.PlantsRecycleViewAdapter;
+import hr.foi.air1817.botanico.helpers.MockDataLoader;
+
+import static java.security.AccessController.getContext;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
 
-    private Button btnAddValue;
-    private TextView textView;
+    @Bind(R.id.rv_plants)
+    public RecyclerView recyclerView;
 
     private int testInt = 0;
 
@@ -41,31 +51,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView = (TextView)findViewById(R.id.valueView);
-        btnAddValue = (Button) findViewById(R.id.addValue);
-        btnAddValue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Write a message to the database
-                myRef.setValue(++testInt);
-            }
-        });
-
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String value = dataSnapshot.child("message").getValue(String.class);
-                textView.setText(value);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        ButterKnife.bind(this);
 
         SetToolbar();
         ManageNavigationMenu();
+
+        LinearLayoutManager llm = new LinearLayoutManager(this); recyclerView.setLayoutManager(llm);
+        recyclerView.setAdapter(new PlantsRecycleViewAdapter(getApplicationContext(),MockDataLoader.getDemoData()));
     }
 
     @Override

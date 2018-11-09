@@ -3,21 +3,21 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:title="Home" />
+            android:title="@string/nav_home" />
         <item
             android:id="@+id/nav_gallery"
-            android:title="Gallery" />
+            android:title="@string/nav_gallery" />
         <item
             android:id="@+id/nav_notification_settings"
-            android:title="Notification settings" />
+            android:title="@string/nav_notification_settings" />
     </group>
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_help"
-            android:title="Help" />
+            android:title="@string/nav_help" />
         <item
             android:id="@+id/nav_info"
-            android:title="Info" />
+            android:title="@string/nav_info" />
     </group>
 </menu>
