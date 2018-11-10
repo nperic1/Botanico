@@ -25,6 +25,31 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_home"
+                    style="@style/TitleText"
+                    />
+
+                <Button
+                    android:id="@+id/toolbar_add_new_garden_button"
+                    android:layout_gravity="right"
+                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:width="21dp"
+                    android:height="44.5dp"
+                    android:textColor="#FFFFFF"
+                    android:background="@color/colorPrimary"
+                    android:textSize="15pt"
+                    android:text="+"
+                    style="?android:attr/borderlessButtonStyle"
+
+                />
+
+                    />
+
             </android.support.v7.widget.Toolbar>
 
             <!-- Tu ide ostali UI -->
