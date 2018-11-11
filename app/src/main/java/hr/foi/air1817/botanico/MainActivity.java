@@ -6,7 +6,6 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,12 +15,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
 
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -42,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("message");
-
+    private Button probni;
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.BotanicoTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -58,23 +55,8 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this); recyclerView.setLayoutManager(llm);
         recyclerView.setAdapter(new PlantsRecycleViewAdapter(getApplicationContext(),MockDataLoader.getDemoData()));
 
-        PlantViewModel viewModel = ViewModelProviders.of(this).get(PlantViewModel.class);
-        LiveData<DataSnapshot> liveData = viewModel.getDataSnapshotLiveData();
 
-        liveData.observe(this, new Observer<DataSnapshot>() {
-            @Override
-            public void onChanged(@Nullable DataSnapshot dataSnapshot) {
-                if (dataSnapshot != null) {
-                    // update the UI here with values in the snapshot
-                    Long temp = dataSnapshot.child("temp").getValue(Long.class);
-                    Log.d("TEMP", temp.toString());
-                    Long humidity = dataSnapshot.child("humidity").getValue(Long.class);
-                    Log.d("HUMIDITY", humidity.toString());
-                    Long light = dataSnapshot.child("light").getValue(Long.class);
-                    Log.d("LIGHT", light.toString());
-                }
-            }
-        });
+
     }
 
     @Override
@@ -121,5 +103,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void OpenGardenView(View view){
         startActivity(new Intent(getApplicationContext(), GardenView.class));
+    }
+
+    public void openNewGardenActivity(View view) {
+        startActivity(new Intent(getApplicationContext(), AddGardenActivity.class));
     }
 }

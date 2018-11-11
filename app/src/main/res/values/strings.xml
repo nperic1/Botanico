@@ -5,4 +5,18 @@
     <string name="nav_notification_settings">Notification settings</string>
     <string name="nav_help">Help</string>
     <string name="nav_info">Info</string>
+    <string name="add_screen_title">New garden</string>
+    <string name="wifi_steps">1. After setting up your new device, open your Wifi settings \n
+        2. Connect your device to BotanicoAP\n
+        3. Click on your new notification\n
+        4. From the menu select "Configure WiFi" \n
+        5. Select the networku you want arduino to use \n
+        6. Input the network password\n "
+    </string>
+    <string name="wifi_setup">Connect Arduino to your WiFi network</string>
+    <string name="new_plant_name">Name</string>
+    <string name="new_plant_hummidity">Min humidity</string>
+    <string name="new_plant_id">ID</string>
+    <string name="WiFi_setup_help">Configure WiFi for new plant</string>
+
 </resources>

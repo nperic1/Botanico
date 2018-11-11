@@ -9,7 +9,7 @@
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/BotanicoTheme.Launcher">
+        android:theme="@style/BotanicoTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,7 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GardenView"></activity>
+        <activity android:name=".GardenView" />
+        <activity android:name=".AddGardenActivity" />
+        <activity android:name=".wifi_popup"></activity>
     </application>
 
 </manifest>

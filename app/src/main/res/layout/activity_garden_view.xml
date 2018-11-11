@@ -23,14 +23,14 @@
                 style="@style/ToolbarStyle"
                 >
 
-                <Button
+                <ImageButton
                     android:id="@+id/back_button"
+                    android:onClick="goBack"
+                    android:background="@drawable/ic_arrow_back_white_24dp"
                     android:layout_width="50dp"
                     android:layout_height="fill_parent"
                     android:layout_gravity="left"
                     style="@style/ButtonStyle"
-                    android:text="Bek"
-                    android:textColor="#FFFFFF"
                 />
 
                 <Button
@@ -67,12 +67,12 @@
                     android:src="@mipmap/ic_botanico_logo"
                     />
                 <TextView
+                    android:id="@+id/humidity_data"
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     style="@style/GardenViewDataText"
-                    android:text="23%"
                     />
 
 
@@ -94,12 +94,12 @@
                     android:src="@mipmap/ic_botanico_logo"
                     />
                 <TextView
+                    android:id="@+id/light_data"
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     style="@style/GardenViewDataText"
-                    android:text="10 lux"
                     />
 
 
@@ -121,12 +121,12 @@
                     android:src="@mipmap/ic_botanico_logo"
                     />
                 <TextView
+                    android:id="@+id/temperature_data"
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="3"
                     android:gravity="center"
                     style="@style/GardenViewDataText"
-                    android:text="20 C"
                     />
 
             </LinearLayout>
