@@ -72,8 +72,63 @@
                     android:layout_weight="3"
                     android:gravity="center"
                     style="@style/GardenViewDataText"
-                    android:text="Neki tekst"
+                    android:text="23%"
                     />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+                >
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitStart"
+                    android:layout_marginLeft="40dp"
+                    android:id="@+id/light_img"
+                    android:src="@mipmap/ic_botanico_logo"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    style="@style/GardenViewDataText"
+                    android:text="10 lux"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+                >
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitStart"
+                    android:layout_marginLeft="40dp"
+                    android:id="@+id/temperature_img"
+                    android:src="@mipmap/ic_botanico_logo"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    style="@style/GardenViewDataText"
+                    android:text="20 C"
+                    />
+
             </LinearLayout>
 
         </LinearLayout>
