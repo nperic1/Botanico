@@ -71,26 +71,23 @@
                     android:hint="Name" />
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_humidity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="25dp">
 
 
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/new_plant_hummidity" />
+            <ImageButton
+                android:id="@+id/button_choose_image"
+                android:layout_width="250dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="70dp"
+                android:onClick="chooseImage"
 
-            </android.support.design.widget.TextInputLayout>
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
                 android:orientation="horizontal"
-                android:paddingTop="20dp"
-                android:layout_marginLeft="10dp">
+                android:paddingTop="20dp">
 
 
                 <TextView
@@ -104,13 +101,19 @@
                 <ImageButton
 
                     android:layout_width="wrap_content"
-                    android:layout_gravity="center_vertical"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:background="@drawable/ic_help_black_24dp"
                     android:gravity="center_vertical" />
 
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
 
         </LinearLayout>
 
