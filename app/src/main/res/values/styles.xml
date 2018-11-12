@@ -21,7 +21,10 @@
         <item name="android:buttonStyle">?android:attr/borderlessButtonStyle</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:textColor">#FFFFFF</item>
+    </style>
 
+    <style name="SensorIcon">
+        <item name="android:buttonStyle">?android:attr/borderlessButtonStyle</item>
     </style>
 
     <style name="TitleText">

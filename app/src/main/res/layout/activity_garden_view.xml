@@ -60,11 +60,12 @@
                 <ImageButton
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
                     android:scaleType="fitStart"
                     android:layout_marginLeft="40dp"
                     android:id="@+id/humidity_img"
-                    android:src="@mipmap/ic_botanico_logo"
+                    android:src="@mipmap/ic_humidity"
+                    android:background="@null"
                     />
                 <TextView
                     android:id="@+id/humidity_data"
@@ -87,11 +88,12 @@
                 <ImageButton
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
                     android:scaleType="fitStart"
                     android:layout_marginLeft="40dp"
                     android:id="@+id/light_img"
-                    android:src="@mipmap/ic_botanico_logo"
+                    android:src="@mipmap/ic_light"
+                    android:background="@null"
                     />
                 <TextView
                     android:id="@+id/light_data"
@@ -114,11 +116,12 @@
                 <ImageButton
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
                     android:scaleType="fitStart"
                     android:layout_marginLeft="40dp"
                     android:id="@+id/temperature_img"
-                    android:src="@mipmap/ic_botanico_logo"
+                    android:src="@mipmap/ic_temperature"
+                    android:background="@null"
                     />
                 <TextView
                     android:id="@+id/temperature_data"
