@@ -28,10 +28,11 @@
                 <Button
                     android:id="@+id/back_button"
                     style="@style/ButtonStyle"
-                    android:layout_width="50dp"
-                    android:layout_height="fill_parent"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="left"
-                    android:text="nd" />
+                    android:background="@drawable/ic_arrow_back_white_24dp"
+                    />
 
                 <TextView
                     android:id="@+id/title"
@@ -71,16 +72,26 @@
                     android:hint="Name" />
             </android.support.design.widget.TextInputLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                >
+                <ImageButton
+                    android:id="@+id/button_choose_image"
+                    android:layout_width="250dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="70dp"
+                    android:onClick="chooseImage"
+                    android:src="@drawable/ic_image_white"
+                    android:background="#D3D3D3"
+
+                    />
+
+            </LinearLayout>
 
 
-            <ImageButton
-                android:id="@+id/button_choose_image"
-                android:layout_width="250dp"
-                android:layout_height="150dp"
-                android:layout_marginLeft="70dp"
-                android:onClick="chooseImage"
-
-                />
 
             <LinearLayout
                 android:layout_width="match_parent"
