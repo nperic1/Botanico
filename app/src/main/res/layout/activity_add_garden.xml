@@ -84,6 +84,8 @@
                     android:layout_height="150dp"
                     android:layout_marginLeft="70dp"
                     android:onClick="chooseImage"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"
                     android:src="@drawable/ic_image_white"
                     android:background="#D3D3D3"
 
@@ -124,7 +126,10 @@
                 android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Button"
+                android:onClick="uploadImage"
+                />
+
 
         </LinearLayout>
 
