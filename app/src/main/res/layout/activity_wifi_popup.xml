@@ -37,18 +37,6 @@
 
             />
 
-        <Button
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="#FFFFFF"
-            android:text="OK"
-            android:gravity="right"
-            android:textSize="25dp"
-            android:paddingRight="50dp"
-            android:fontFamily="Roboto"
-            />
-
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
