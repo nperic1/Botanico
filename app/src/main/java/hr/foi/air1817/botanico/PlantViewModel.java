@@ -32,7 +32,7 @@ public class PlantViewModel extends ViewModel {
 
 
     @NonNull
-    public LiveData<Plant> getHotStockLiveData() {
+    public LiveData<Plant> getPlantLiveData() {
         return plantLiveData;
     }
 
