@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 
-public class GardenView extends AppCompatActivity {
+public class PlantDetails extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override

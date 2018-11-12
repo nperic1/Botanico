@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GardenView">
+    tools:context=".PlantDetails">
 
     <FrameLayout
         android:id="@+id/content_frame"
@@ -49,6 +49,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="200dp"
                 android:src="@mipmap/ic_botanico_logo"
+                android:layout_marginBottom="5dp"
                 />
 
             <LinearLayout

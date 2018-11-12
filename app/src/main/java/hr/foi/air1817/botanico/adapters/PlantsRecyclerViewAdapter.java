@@ -18,12 +18,12 @@ import hr.foi.air1817.botanico.R;
 import hr.foi.air1817.botanico.entities.Plant;
 import hr.foi.air1817.botanico.viewholders.PlantViewHolder;
 
-public class PlantsRecycleViewAdapter extends RecyclerView.Adapter<PlantViewHolder> {
+public class PlantsRecyclerViewAdapter extends RecyclerView.Adapter<PlantViewHolder> {
 
     private Context context;
     private List<Plant> plantItems;
 
-    public PlantsRecycleViewAdapter(Context context, List<Plant> mPlants) {
+    public PlantsRecyclerViewAdapter(Context context, List<Plant> mPlants) {
         super();
         this.context = context;
         this.plantItems = mPlants;

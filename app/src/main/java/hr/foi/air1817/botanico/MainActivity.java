@@ -1,8 +1,5 @@
 package hr.foi.air1817.botanico;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import hr.foi.air1817.botanico.adapters.PlantsRecycleViewAdapter;
+import hr.foi.air1817.botanico.adapters.PlantsRecyclerViewAdapter;
 import hr.foi.air1817.botanico.helpers.MockDataLoader;
 
 
@@ -53,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         ManageNavigationMenu();
 
         LinearLayoutManager llm = new LinearLayoutManager(this); recyclerView.setLayoutManager(llm);
-        recyclerView.setAdapter(new PlantsRecycleViewAdapter(getApplicationContext(),MockDataLoader.getDemoData()));
+        recyclerView.setAdapter(new PlantsRecyclerViewAdapter(getApplicationContext(),MockDataLoader.getDemoData()));
 
 
 
@@ -102,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OpenGardenView(View view){
-        startActivity(new Intent(getApplicationContext(), GardenView.class));
+        startActivity(new Intent(getApplicationContext(), PlantDetails.class));
     }
 
     public void openNewGardenActivity(View view) {

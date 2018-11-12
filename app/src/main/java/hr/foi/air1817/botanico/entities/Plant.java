@@ -1,13 +1,23 @@
 package hr.foi.air1817.botanico.entities;
 
 public class Plant {
+    private int id;
     private String name;
     private double last_temp;
     private double last_humidity;
     private double last_light;
     private String image_path;
 
-    public Plant(String name, double last_temp, double last_humidity, double last_light, String image_path) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Plant(int id, String name, double last_temp, double last_humidity, double last_light, String image_path) {
+        this.id = id;
         this.name = name;
         this.last_temp = last_temp;
         this.last_humidity = last_humidity;
