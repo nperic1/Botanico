@@ -19,100 +19,136 @@
             android:orientation="vertical">
 
 
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="200dp"
-                android:id="@+id/plantImage"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
-                android:layout_marginBottom="10dp"
-                />
-
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal"
-                android:paddingTop="15dp"
-                >
+                android:layout_height="match_parent">
 
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:scaleType="fitStart"
-                    android:layout_marginLeft="40dp"
-                    android:id="@+id/humidity_img"
-                    android:src="@mipmap/ic_humidity"
-                    android:background="@null"
-                    />
-                <TextView
-                    android:id="@+id/humidity_data"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    style="@style/GardenViewDataText"
-                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="200dp"
+                        android:id="@+id/plantImage"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        android:layout_marginBottom="10dp"
+                        />
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:orientation="horizontal"
+                        android:paddingTop="15dp"
+                        >
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal"
-                android:paddingTop="15dp"
-                >
+                        <ImageButton
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="fill_parent"
+                            android:scaleType="fitStart"
+                            android:layout_marginLeft="40dp"
+                            android:id="@+id/humidity_img"
+                            android:src="@mipmap/ic_humidity"
+                            android:background="@null"
+                            />
+                        <TextView
+                            android:id="@+id/humidity_data"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="3"
+                            android:gravity="center"
+                            style="@style/GardenViewDataText"
+                            />
+                    </LinearLayout>
 
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:scaleType="fitStart"
-                    android:layout_marginLeft="40dp"
-                    android:id="@+id/light_img"
-                    android:src="@mipmap/ic_light"
-                    android:background="@null"
-                    />
-                <TextView
-                    android:id="@+id/light_data"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    style="@style/GardenViewDataText"
-                    />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:orientation="horizontal"
+                        android:paddingTop="15dp"
+                        >
 
+                        <ImageButton
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="fill_parent"
+                            android:scaleType="fitStart"
+                            android:layout_marginLeft="40dp"
+                            android:id="@+id/light_img"
+                            android:src="@mipmap/ic_light"
+                            android:background="@null"
+                            />
+                        <TextView
+                            android:id="@+id/light_data"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="3"
+                            android:gravity="center"
+                            style="@style/GardenViewDataText"
+                            />
 
-            </LinearLayout>
+                    </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal"
-                android:paddingTop="15dp"
-                >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:orientation="horizontal"
+                        android:paddingTop="15dp"
+                        >
 
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="fill_parent"
-                    android:scaleType="fitStart"
-                    android:layout_marginLeft="40dp"
-                    android:id="@+id/temperature_img"
-                    android:src="@mipmap/ic_temperature"
-                    android:background="@null"
-                    />
-                <TextView
-                    android:id="@+id/temperature_data"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    style="@style/GardenViewDataText"
-                    />
+                        <ImageButton
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="fill_parent"
+                            android:scaleType="fitStart"
+                            android:layout_marginLeft="40dp"
+                            android:id="@+id/temperature_img"
+                            android:src="@mipmap/ic_temperature"
+                            android:background="@null"
+                            />
+                        <TextView
+                            android:id="@+id/temperature_data"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="3"
+                            android:gravity="center"
+                            style="@style/GardenViewDataText"
+                            />
+                    </LinearLayout>
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:orientation="horizontal"
+                        android:paddingTop="15dp"
+                        >
+
+                        <ImageButton
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="fill_parent"
+                            android:scaleType="fitStart"
+                            android:layout_marginLeft="40dp"
+                            android:id="@+id/garden_settings_icon"
+                            android:src="@mipmap/ic_garden_settings"
+                            android:background="@null"
+                            />
+                        <TextView
+                            android:id="@+id/garden_settings_text"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="3"
+                            android:text="Garden settings"
+                            android:gravity="center"
+                            style="@style/GardenViewDataText"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
 
         </LinearLayout>
     </FrameLayout>

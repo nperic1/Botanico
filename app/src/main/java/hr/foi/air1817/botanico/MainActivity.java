@@ -36,8 +36,6 @@ import hr.foi.air1817.botanico.helpers.MockDataLoader;
 
 
 public class MainActivity extends AppCompatActivity implements android.app.FragmentManager.OnBackStackChangedListener {
-    private static final int MENU_ADD = Menu.FIRST;
-    private static final int MENU_SETTINGS= Menu.FIRST+1;
 
     private DrawerLayout mDrawerLayout;
     private Toolbar mToolbar;
@@ -58,8 +56,8 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
 
         ButterKnife.bind(this);
 
-        SetToolbar();
-        ManageNavigationMenu();
+        setToolbar();
+        manageNavigationMenu();
 
         mDrawerToggle = setupDrawerToggle();
         mDrawerLayout.addDrawerListener(mDrawerToggle);
@@ -83,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            //TODO dodat ostale ikone iz toolbara
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
@@ -118,12 +115,12 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
         }
     }
 
-    public void SetToolbar(){
+    public void setToolbar(){
         mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
     }
 
-    public void ManageNavigationMenu(){
+    public void manageNavigationMenu(){
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         NavigationView navigationView;
@@ -141,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
                         switch (menuItem.getItemId()){
                             //TODO Dodat ostale fragmente iz glavnog izbornika
                             case R.id.nav_home:
-                                getSupportActionBar().setTitle(R.string.app_name);
+                                getSupportActionBar().setTitle(R.string.nav_home);
                                 PlantListFragment plf = new PlantListFragment();
                                 changeFragment(plf);
                                 break;
@@ -175,8 +172,6 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
 
     @Override
     public void onBackStackChanged() {
-        //TODO Ova funkcija/listener ne radi iz nekog razloga a trebala bi
-        Log.i("stack", Integer.toString(getFragmentManager().getBackStackEntryCount()));
         mDrawerToggle.setDrawerIndicatorEnabled(mFm.getBackStackEntryCount() == 0);
         getSupportActionBar().setDisplayHomeAsUpEnabled(mFm.getBackStackEntryCount() > 0);
         mDrawerToggle.syncState();

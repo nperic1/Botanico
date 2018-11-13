@@ -33,8 +33,8 @@
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="C:\Users\Korisnik\Desktop\Temperatura2.png" />
-                                      <entry key="outputName" value="ic_temperature" />
+                                      <entry key="imageAsset" value="C:\Users\Korisnik\Desktop\settings2.png" />
+                                      <entry key="outputName" value="ic_garden_settings" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -70,7 +70,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_add_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/file/ic_cloud_upload_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -81,7 +81,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_add_new" />
+                            <entry key="outputName" value="ic_cloud_upload" />
                             <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="C:\Users\Mirna" />
                           </map>

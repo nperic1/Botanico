@@ -2,15 +2,13 @@ package hr.foi.air1817.botanico;
 
 import android.annotation.TargetApi;
 import android.app.Fragment;
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +43,8 @@ public class PlantDetailsFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.nav_plant_details);
 
         final ImageView plantImage = getView().findViewById(R.id.plantImage);
         final TextView temp = getView().findViewById(R.id.temperature_data);

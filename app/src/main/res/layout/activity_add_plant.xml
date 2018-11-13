@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".AddGardenActivity">
 
+    <include layout="@layout/toolbar" android:layout_width="match_parent"
+        android:layout_height="wrap_content"></include>
 
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:layout_margin="15dp">
 
         <LinearLayout
             android:id="@+id/toolbar"
@@ -22,94 +25,87 @@
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/new_plant_id"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="50dp">
-
-
+                android:layout_height="wrap_content">
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="ID" />
+                    android:hint="Device ID" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_plant_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="25dp">
-
-
+                android:layout_height="wrap_content">
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Name" />
+                    android:hint="Plant name" />
             </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingTop="30dp"
-                >
+                android:paddingTop="30dp">
+
                 <ImageButton
                     android:id="@+id/button_choose_image"
                     android:layout_width="250dp"
                     android:layout_height="150dp"
                     android:layout_gravity="center"
                     android:onClick="chooseImage"
-                    android:scaleType="centerInside"
+                    android:scaleType="fitCenter"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/ic_image_white"
-                    android:background="#D3D3D3"
-
-                    />
-
-            </LinearLayout>
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="10dp"
-                android:orientation="horizontal"
-                android:paddingTop="20dp">
-
+                    android:src="@drawable/ic_cloud_upload"
+                    android:background="#D3D3D3" />
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/upload_image"
+                    android:textAlignment="center"
+                    android:padding="10dp"
+                    android:textColor="@color/colorAccent"
+                    style="@style/TextAppearance.AppCompat.Small"
+                    android:onClick="chooseImage"/>
+            </LinearLayout>
 
-                    style="@style/GeneralText"
-                    android:layout_width="300dp"
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:layout_weight="2"
                     android:text="@string/WiFi_setup_help"
-                    android:onClick="showPopUp"
-                    />
+                    android:textColor="@color/textPrimary"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:onClick="showPopUp" />
 
                 <ImageButton
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/ic_help_black_24dp"
-                    android:gravity="center_vertical"
-                    android:onClick="showPopUp"
-                    />
-
-
+                    android:onClick="showPopUp" />
             </LinearLayout>
 
             <Button
-                android:id="@+id/button"
-                android:layout_width="match_parent"
+                android:id="@+id/button_save"
+                android:background="@color/colorAccent"
+                android:textColor="#FFFFFF"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="Button"
-                android:onClick="uploadImage"
-                />
+                android:layout_gravity="center_horizontal"
+                android:text="@string/save_plant"
 
+                android:onClick="uploadImage"/>
 
         </LinearLayout>
-
-
     </FrameLayout>
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

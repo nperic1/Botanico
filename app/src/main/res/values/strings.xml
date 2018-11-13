@@ -7,18 +7,21 @@
     <string name="nav_info">Info</string>
     <string name="add_screen_title">New garden</string>
     <string name="wifi_steps">1. After setting up your new device, open your Wifi settings \n
-        2. Connect your device to BotanicoAP\n
-        3. Click on your new notification\n
+        2. Connect your phone to BotanicoAP\n
+        3. Click on notification\n
         4. From the menu select "Configure WiFi" \n
-        5. Select the networku you want arduino to use \n
+        5. Select the network you want Arduino to use \n
         6. Input the network password\n "
     </string>
     <string name="wifi_setup">Connect Arduino to your WiFi network</string>
     <string name="new_plant_name">Name</string>
-    <string name="new_plant_hummidity">Min humidity</string>
+    <string name="new_plant_humidity">Min humidity</string>
     <string name="new_plant_id">ID</string>
     <string name="WiFi_setup_help">Configure WiFi for new plant</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-    <string name="app_info">Botanico is mobile application which helps you ...</string>
+    <string name="app_info">Botanico is a mobile application which helps you ...</string>
+    <string name="upload_image"><u>Upload cover image for your plant</u></string>
+    <string name="save_plant">Save</string>
+    <string name="nav_plant_details">Plant details</string>
 </resources>

@@ -6,5 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"
-        android:text="@string/app_info"/>
+        android:text="@string/app_info"
+        android:textColor="@color/textPrimary"
+        style="@style/TextAppearance.AppCompat.Medium"/>
 </android.support.constraint.ConstraintLayout>
