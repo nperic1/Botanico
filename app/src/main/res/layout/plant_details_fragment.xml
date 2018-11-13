@@ -22,7 +22,9 @@
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="200dp"
-                android:src="@mipmap/ic_botanico_logo"
+                android:id="@+id/plantImage"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
                 android:layout_marginBottom="10dp"
                 />
 
@@ -30,6 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:orientation="horizontal"
+                android:paddingTop="15dp"
                 >
 
                 <ImageButton
@@ -58,6 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:orientation="horizontal"
+                android:paddingTop="15dp"
                 >
 
                 <ImageButton
@@ -86,6 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:orientation="horizontal"
+                android:paddingTop="15dp"
                 >
 
                 <ImageButton
