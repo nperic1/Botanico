@@ -2,12 +2,18 @@ package hr.foi.air1817.botanico.adapters;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -37,11 +43,19 @@ public class PlantsRecyclerViewAdapter extends RecyclerView.Adapter<PlantViewHol
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlantViewHolder plantViewHolder, int i) {
+    public void onBindViewHolder(@NonNull final PlantViewHolder plantViewHolder, int i) {
         plantViewHolder.plantName.setText(plantItems.get(i).getName());
-        //plantViewHolder.plantImagePath.setImageURI(Uri.parse(plantItems.get(i).getImage_path()));
-
         plantViewHolder.itemView.setTag(plantItems.get(i).getId());
+
+        StorageReference loadImage = FirebaseStorage.getInstance().getReference( plantItems.get(i).getId()+ "/avatar_image/avatar.jpg");
+
+        loadImage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>(){
+
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.with(context.getApplicationContext()).load(uri.toString()).into(plantViewHolder.plantImage);
+            }
+        });
     }
 
     @Override

@@ -20,7 +20,7 @@ public class PlantViewHolder extends RecyclerView.ViewHolder {
     @Bind(R.id.pv_name)
     public TextView plantName;
     @Bind(R.id.pv_image)
-    public ImageView plantImagePath;
+    public ImageView plantImage;
 
     private Context context;
     private List<Plant> mPlants;
