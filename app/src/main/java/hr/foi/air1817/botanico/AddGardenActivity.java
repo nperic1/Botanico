@@ -29,10 +29,11 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.Set;
 import java.util.UUID;
 
 public class AddGardenActivity extends AppCompatActivity {
-
+    private Toolbar mToolbar;
     private ImageButton btnChoose;
     private Uri filePath;
     private final int PICK_IMAGE_REQUEST = 71;
@@ -43,6 +44,17 @@ public class AddGardenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_plant_fragment);
         btnChoose=(ImageButton)findViewById(R.id.button_choose_image);
+
+        setToolbar();
+    }
+
+    public void setToolbar(){
+        mToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setTitle("New plant");
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void chooseImage(View view){
@@ -120,5 +132,14 @@ public class AddGardenActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
 
