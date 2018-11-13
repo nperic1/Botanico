@@ -3,10 +3,9 @@ package hr.foi.air1817.botanico.entities;
 public class Plant {
     private int id;
     private String name;
-    private float last_temp;
-    private float last_humidity;
-    private float last_light;
-    private String image_path;
+    private float temp;
+    private float humidity;
+    private float light;
 
     public int getId() {
         return id;
@@ -16,13 +15,16 @@ public class Plant {
         this.id = id;
     }
 
-    public Plant(int id, String name, float last_temp, float last_humidity, float last_light, String image_path) {
+    public Plant(int id, String name, float temp, float humidity, float light) {
         this.id = id;
         this.name = name;
-        this.last_temp = last_temp;
-        this.last_humidity = last_humidity;
-        this.last_light = last_light;
-        this.image_path = image_path;
+        this.temp = temp;
+        this.humidity = humidity;
+        this.light = light;
+    }
+
+    public void Plant(){
+
     }
 
     public String getName() {
@@ -33,35 +35,29 @@ public class Plant {
         this.name = name;
     }
 
-    public float getLast_temp() {
-        return last_temp;
+    public float getTemp() {
+        return temp;
     }
 
-    public void setLast_temp(float last_temp) {
-        this.last_temp = last_temp;
+    public void setTemp(float last_temp) {
+        this.temp = temp;
     }
 
-    public float getLast_humidity() {
-        return last_humidity;
+    public float getHumidity() {
+        return humidity;
     }
 
-    public void setLast_humidity(float last_humidity) {
-        this.last_humidity = last_humidity;
+    public void setHumidity(float humidity) {
+        this.humidity = humidity;
     }
 
-    public float getLast_light() {
-        return last_light;
+    public float getLight() {
+        return light;
     }
 
-    public void setLast_light(float last_light) {
-        this.last_light = last_light;
+    public void setLight(float light) {
+        this.light = light;
     }
 
-    public String getImage_path() {
-        return image_path;
-    }
-
-    public void setImage_path(String image_path) {
-        this.image_path = image_path;
-    }
+    public String getAvatarPath(){return "/" + id + "/avatar_image/";};
 }

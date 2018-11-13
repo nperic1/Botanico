@@ -82,7 +82,9 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="@string/WiFi_setup_help" />
+                    android:text="@string/WiFi_setup_help"
+                    android:onClick="showPopUp"
+                    />
 
                 <ImageButton
 
@@ -90,7 +92,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/ic_help_black_24dp"
-                    android:gravity="center_vertical" />
+                    android:gravity="center_vertical"
+                    android:onClick="showPopUp"
+                    />
 
 
             </LinearLayout>

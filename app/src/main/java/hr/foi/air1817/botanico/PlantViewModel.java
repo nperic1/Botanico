@@ -11,7 +11,6 @@ import android.support.annotation.RequiresApi;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.StorageReference;
 
 import hr.foi.air1817.botanico.entities.Plant;
 
@@ -33,7 +32,7 @@ public class PlantViewModel extends ViewModel {
 
 
     @NonNull
-    public LiveData<Plant> getHotStockLiveData() {
+    public LiveData<Plant> getPlantLiveData() {
         return plantLiveData;
     }
 

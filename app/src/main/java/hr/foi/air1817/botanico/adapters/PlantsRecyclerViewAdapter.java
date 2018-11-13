@@ -2,20 +2,15 @@ package hr.foi.air1817.botanico.adapters;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
 
-import hr.foi.air1817.botanico.MainActivity;
 import hr.foi.air1817.botanico.PlantDetailsFragment;
 import hr.foi.air1817.botanico.R;
 import hr.foi.air1817.botanico.entities.Plant;
@@ -44,7 +39,7 @@ public class PlantsRecyclerViewAdapter extends RecyclerView.Adapter<PlantViewHol
     @Override
     public void onBindViewHolder(@NonNull PlantViewHolder plantViewHolder, int i) {
         plantViewHolder.plantName.setText(plantItems.get(i).getName());
-        plantViewHolder.plantImagePath.setImageURI(Uri.parse(plantItems.get(i).getImage_path()));
+        //plantViewHolder.plantImagePath.setImageURI(Uri.parse(plantItems.get(i).getImage_path()));
 
         plantViewHolder.itemView.setTag(plantItems.get(i).getId());
     }
