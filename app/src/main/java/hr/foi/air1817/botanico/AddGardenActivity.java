@@ -1,5 +1,6 @@
 package hr.foi.air1817.botanico;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -8,10 +9,13 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -50,26 +54,18 @@ public class AddGardenActivity extends AppCompatActivity {
 
 
     public void showPopUp(View view){
-        LayoutInflater inflater = (LayoutInflater)
-                getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.activity_wifi_popup, null);
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.activity_wifi_popup);
 
-        final PopupWindow popupWindow = new PopupWindow(popupView,
-                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT,
-                true);
-
-
-        popupWindow.setBackgroundDrawable(this.getDrawable(android.R.drawable.picture_frame));
-        popupView.setElevation(20);
-        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
-
-        popupView.setOnTouchListener(new View.OnTouchListener() {
+        Button dialogButton = (Button) dialog.findViewById(R.id.dialog_ok);
+        dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                popupWindow.dismiss();
-                return true;
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
+
+        dialog.show();
     }
 
 
