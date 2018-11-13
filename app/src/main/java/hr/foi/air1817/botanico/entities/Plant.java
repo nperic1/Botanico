@@ -1,39 +1,31 @@
 package hr.foi.air1817.botanico.entities;
 
-import android.net.Uri;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
+@Entity(tableName = "plant_table")
 public class Plant {
+    @PrimaryKey
+    @NonNull
     private int id;
     private String name;
     private float temp;
     private float humidity;
     private float light;
-    private Uri plantAvatarUri;
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Plant(int id, String name, float temp, float humidity, float light) {
+    public Plant(int id, String name) {
         this.id = id;
         this.name = name;
-        this.temp = temp;
-        this.humidity = humidity;
-        this.light = light;
-        setImageAvatarUri();
     }
 
+    @Ignore
     public Plant(){
 
     }
@@ -70,16 +62,4 @@ public class Plant {
         this.light = light;
     }
 
-    public Uri getPlantAvatarUri(){return  plantAvatarUri;}
-
-    public void setImageAvatarUri() {
-        Task<AuthResult> auth = FirebaseAuth.getInstance().signInAnonymously();
-        StorageReference loadImage = FirebaseStorage.getInstance().getReference(id + "/avatar_image/avatar.jpg");
-        loadImage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                plantAvatarUri = uri;
-            }
-        });
-    }
 }
