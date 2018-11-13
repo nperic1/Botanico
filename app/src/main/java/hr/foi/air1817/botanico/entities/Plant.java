@@ -23,7 +23,7 @@ public class Plant {
         this.light = light;
     }
 
-    public void Plant(){
+    public Plant(){
 
     }
 

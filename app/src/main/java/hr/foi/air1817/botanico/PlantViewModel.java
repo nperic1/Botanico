@@ -18,7 +18,7 @@ import hr.foi.air1817.botanico.entities.Plant;
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class PlantViewModel extends ViewModel {
     private static final DatabaseReference PLANT_REF =
-            FirebaseDatabase.getInstance().getReference("/235112");
+            FirebaseDatabase.getInstance().getReference(CurrentPlantPath.path);
 
     private final FirebaseQueryLiveData liveData = new FirebaseQueryLiveData(PLANT_REF);
 
