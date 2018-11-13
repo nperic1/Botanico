@@ -11,7 +11,7 @@ import hr.foi.air1817.botanico.PlantRoomDatabase;
 import hr.foi.air1817.botanico.entities.Plant;
 
 public class MockDataLoader {
-    /*
+    /* TODO brisi klasu
     public static List<Plant> getDemoData(){
         List<Plant> mPlants = new ArrayList<Plant>();
         mPlants.add(new Plant(235112,"Tulips",34,3,4));

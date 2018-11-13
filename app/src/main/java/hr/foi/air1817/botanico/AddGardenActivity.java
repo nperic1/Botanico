@@ -8,12 +8,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,18 +29,24 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.util.UUID;
 
+import hr.foi.air1817.botanico.entities.Plant;
+
 public class AddGardenActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private ImageButton btnChoose;
     private Uri filePath;
     private final int PICK_IMAGE_REQUEST = 71;
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("/235112/avatar_image/"+ UUID.randomUUID().toString());;
+    private TextInputLayout deviceId;
+    private TextInputLayout plantName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_plant);
-        btnChoose=(ImageButton)findViewById(R.id.button_choose_image);
+        btnChoose=findViewById(R.id.button_choose_image);
+        deviceId = findViewById(R.id.new_plant_id);
+        plantName = findViewById(R.id.input_plant_name);
 
         setToolbar();
     }
@@ -75,7 +84,7 @@ public class AddGardenActivity extends AppCompatActivity {
     }
 
 
-    public void uploadImage(View view) {
+    public void uploadImage() {
         if(filePath != null)
         {
             final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -105,6 +114,17 @@ public class AddGardenActivity extends AppCompatActivity {
                             progressDialog.setMessage("Uploaded "+(int)progress+"%");
                         }
                     });
+        }
+    }
+
+    public void addPlant(View view){
+        uploadImage();
+        try{
+            PlantRoomDatabase db = PlantRoomDatabase.getPlantRoomDatabase(getApplicationContext());
+            Plant plant = new Plant(Integer.parseInt( deviceId.getEditText().getText().toString()), plantName.getEditText().getText().toString());
+            db.plantDao().insert(plant);
+        }catch(Exception e){
+            e.printStackTrace();
         }
     }
 

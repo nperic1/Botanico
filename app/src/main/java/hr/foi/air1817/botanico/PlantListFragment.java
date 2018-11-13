@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +17,6 @@ import android.view.ViewGroup;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import hr.foi.air1817.botanico.adapters.PlantsRecyclerViewAdapter;
-import hr.foi.air1817.botanico.helpers.MockDataLoader;
-import hr.foi.air1817.botanico.viewholders.PlantViewHolder;
 
 public class PlantListFragment extends android.app.Fragment {
 
@@ -31,10 +30,16 @@ public class PlantListFragment extends android.app.Fragment {
         ButterKnife.bind(this, v);
 
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantDao().deleteAll();
         recyclerView.setLayoutManager(llm);
-        recyclerView.setAdapter(new PlantsRecyclerViewAdapter(getActivity(),MockDataLoader.getDemoData(PlantRoomDatabase.getPlantRoomDatabase(getContext()))));
+        recyclerView.setAdapter(new PlantsRecyclerViewAdapter(getActivity(), PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantDao().getAllPlants()));
         return v;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Override
+    public void onResume() {
+        super.onResume();
+        recyclerView.setAdapter(new PlantsRecyclerViewAdapter(getActivity(), PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantDao().getAllPlants()));
     }
 
     @Override
