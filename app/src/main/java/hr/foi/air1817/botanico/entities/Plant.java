@@ -3,9 +3,9 @@ package hr.foi.air1817.botanico.entities;
 public class Plant {
     private int id;
     private String name;
-    private double temp;
-    private double humidity;
-    private double light;
+    private double last_temp;
+    private double last_humidity;
+    private double last_light;
     private String image_path;
 
     public int getId() {
@@ -16,17 +16,13 @@ public class Plant {
         this.id = id;
     }
 
-    public Plant(int id, String name, double temp, double humidity, double light, String image_path) {
+    public Plant(int id, String name, double last_temp, double last_humidity, double last_light, String image_path) {
         this.id = id;
         this.name = name;
-        this.temp = temp;
-        this.humidity = humidity;
-        this.light = light;
+        this.last_temp = last_temp;
+        this.last_humidity = last_humidity;
+        this.last_light = last_light;
         this.image_path = image_path;
-    }
-
-    public Plant(){
-
     }
 
     public String getName() {
@@ -37,28 +33,28 @@ public class Plant {
         this.name = name;
     }
 
-    public double getTemp() {
-        return temp;
+    public double getLast_temp() {
+        return last_temp;
     }
 
-    public void setTemp(double temp) {
-        this.temp = temp;
+    public void setLast_temp(double last_temp) {
+        this.last_temp = last_temp;
     }
 
-    public double getHumidity() {
-        return humidity;
+    public double getLast_humidity() {
+        return last_humidity;
     }
 
-    public void setHumidity(double humidity) {
-        this.humidity = humidity;
+    public void setLast_humidity(double last_humidity) {
+        this.last_humidity = last_humidity;
     }
 
-    public double getLight() {
-        return light;
+    public double getLast_light() {
+        return last_light;
     }
 
-    public void setLight(double light) {
-        this.light = light;
+    public void setLast_light(double last_light) {
+        this.last_light = last_light;
     }
 
     public String getImage_path() {
