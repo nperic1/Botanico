@@ -9,7 +9,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/content_frame"
         android:layout_height="wrap_content"
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_gravity="center|center_horizontal"
         android:padding="10dp"
         android:background="#FFFFFF"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/wifi_steps"
-            android:textSize="18dp" />
+            style="@style/TextAppearance.AppCompat.Medium" />
 
         <Button
             android:id="@+id/dialog_ok"

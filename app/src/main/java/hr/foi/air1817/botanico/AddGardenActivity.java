@@ -10,15 +10,10 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,7 +24,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
-import java.util.Set;
 import java.util.UUID;
 
 public class AddGardenActivity extends AppCompatActivity {
@@ -42,7 +36,7 @@ public class AddGardenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_plant_fragment);
+        setContentView(R.layout.activity_add_plant);
         btnChoose=(ImageButton)findViewById(R.id.button_choose_image);
 
         setToolbar();
@@ -67,7 +61,7 @@ public class AddGardenActivity extends AppCompatActivity {
 
     public void showPopUp(View view){
         final Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.activity_wifi_popup);
+        dialog.setContentView(R.layout.wifi_dialog);
 
         Button dialogButton = (Button) dialog.findViewById(R.id.dialog_ok);
         dialogButton.setOnClickListener(new View.OnClickListener() {

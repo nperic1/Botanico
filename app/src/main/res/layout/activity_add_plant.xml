@@ -66,6 +66,7 @@
                     android:textAlignment="center"
                     android:padding="10dp"
                     android:textColor="@color/colorAccent"
+                    style="@style/TextAppearance.AppCompat.Small"
                     android:onClick="chooseImage"/>
             </LinearLayout>
 
@@ -83,7 +84,7 @@
                     android:layout_weight="2"
                     android:text="@string/WiFi_setup_help"
                     android:textColor="@color/textPrimary"
-                    android:textSize="18dp"
+                    style="@style/TextAppearance.AppCompat.Medium"
                     android:onClick="showPopUp" />
 
                 <ImageButton
@@ -102,6 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/save_plant"
+
                 android:onClick="uploadImage"/>
 
         </LinearLayout>

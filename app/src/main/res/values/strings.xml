@@ -20,7 +20,8 @@
     <string name="WiFi_setup_help">Configure WiFi for new plant</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-    <string name="app_info">Botanico is mobile application which helps you ...</string>
+    <string name="app_info">Botanico is a mobile application which helps you ...</string>
     <string name="upload_image"><u>Upload cover image for your plant</u></string>
     <string name="save_plant">Save</string>
+    <string name="nav_plant_details">Plant details</string>
 </resources>

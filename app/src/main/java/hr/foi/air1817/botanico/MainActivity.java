@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
                         switch (menuItem.getItemId()){
                             //TODO Dodat ostale fragmente iz glavnog izbornika
                             case R.id.nav_home:
-                                getSupportActionBar().setTitle(R.string.app_name);
+                                getSupportActionBar().setTitle(R.string.nav_home);
                                 PlantListFragment plf = new PlantListFragment();
                                 changeFragment(plf);
                                 break;
