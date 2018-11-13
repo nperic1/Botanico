@@ -1,17 +1,25 @@
 package hr.foi.air1817.botanico;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -19,28 +27,30 @@ import android.widget.Button;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import hr.foi.air1817.botanico.adapters.PlantsRecyclerViewAdapter;
 import hr.foi.air1817.botanico.helpers.MockDataLoader;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements android.app.FragmentManager.OnBackStackChangedListener {
+    private static final int MENU_ADD = Menu.FIRST;
+    private static final int MENU_SETTINGS= Menu.FIRST+1;
 
     private DrawerLayout mDrawerLayout;
+    private Toolbar mToolbar;
+    private ActionBarDrawerToggle mDrawerToggle;
 
-    @Bind(R.id.rv_plants)
-    public RecyclerView recyclerView;
-
-    private int testInt = 0;
+    private android.app.FragmentManager mFm;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("message");
-    private Button probni;
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -49,30 +59,61 @@ public class MainActivity extends AppCompatActivity {
         SetToolbar();
         ManageNavigationMenu();
 
-        LinearLayoutManager llm = new LinearLayoutManager(this); recyclerView.setLayoutManager(llm);
-        recyclerView.setAdapter(new PlantsRecyclerViewAdapter(getApplicationContext(),MockDataLoader.getDemoData()));
+        mDrawerToggle = setupDrawerToggle();
+        mDrawerLayout.addDrawerListener(mDrawerToggle);
 
+        mFm = getFragmentManager();
+        mFm.addOnBackStackChangedListener(this);
 
+        mToolbar.setNavigationOnClickListener(navigationClick);
 
+        PlantListFragment plf = new PlantListFragment();
+        android.app.FragmentTransaction fm = getFragmentManager().beginTransaction();
+        fm.replace(R.id.fragment_container, plf);
+        fm.commit();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            //TODO dodat ostale ikone iz toolbara
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
-                return true;
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void SetToolbar(){
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+    public void changeFragment(android.app.Fragment newFr){
+        android.app.FragmentTransaction fm = getFragmentManager().beginTransaction();
+        fm.replace(R.id.fragment_container, newFr);
+        fm.commit();
+    }
 
-        ActionBar actionbar = getSupportActionBar();
-        actionbar.setDisplayHomeAsUpEnabled(true);
-        actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_white);
+    @Override
+    public void onBackPressed() {
+        if(getFragmentManager().getBackStackEntryCount() != 0){
+            // there is something on the stack, I'm in the fragment
+            if(mDrawerLayout.isDrawerOpen(GravityCompat.START)){
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+            }
+            else{
+                getFragmentManager().popBackStack();
+            }
+        } else {
+            // I'm on the landing page, close the drawer or exit
+            if(mDrawerLayout.isDrawerOpen(GravityCompat.START)){
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+            }
+            else{
+                super.onBackPressed();
+            }
+        }
+    }
+
+    public void SetToolbar(){
+        mToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
     }
 
     public void ManageNavigationMenu(){
@@ -90,19 +131,59 @@ public class MainActivity extends AppCompatActivity {
                         // close drawer when item is tapped
                         mDrawerLayout.closeDrawers();
 
-                        // Kod za update korisnickog sucelja
-                        // Npr, promjena pogleda iz Home u Gallery
+                        switch (menuItem.getItemId()){
+                            //TODO Dodat ostale fragmente iz glavnog izbornika
+                            case R.id.nav_home:
+                                getSupportActionBar().setTitle(R.string.app_name);
+                                PlantListFragment plf = new PlantListFragment();
+                                changeFragment(plf);
+                                break;
+                            case R.id.nav_info:
+                                getSupportActionBar().setTitle(R.string.nav_info);
+                                InfoFragment infoFragment = new InfoFragment();
+                                changeFragment(infoFragment);
+                                break;
+                        }
 
                         return true;
                     }
                 });
     }
 
-    public void OpenGardenView(View view){
-        startActivity(new Intent(getApplicationContext(), PlantDetails.class));
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
     }
 
-    public void openNewGardenActivity(View view) {
-        startActivity(new Intent(getApplicationContext(), AddGardenActivity.class));
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
     }
+
+    private ActionBarDrawerToggle setupDrawerToggle() {
+        return new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open,  R.string.drawer_close);
+    }
+
+    @Override
+    public void onBackStackChanged() {
+        //TODO Ova funkcija/listener ne radi iz nekog razloga a trebala bi
+        Log.i("stack", Integer.toString(getFragmentManager().getBackStackEntryCount()));
+        mDrawerToggle.setDrawerIndicatorEnabled(mFm.getBackStackEntryCount() == 0);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(mFm.getBackStackEntryCount() > 0);
+        mDrawerToggle.syncState();
+    }
+
+    View.OnClickListener navigationClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if(getFragmentManager().getBackStackEntryCount() == 0) {
+                mDrawerLayout.openDrawer(GravityCompat.START);
+            }
+            else{
+                onBackPressed();
+            }
+        }
+    };
 }

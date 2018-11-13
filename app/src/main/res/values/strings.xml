@@ -18,5 +18,7 @@
     <string name="new_plant_hummidity">Min humidity</string>
     <string name="new_plant_id">ID</string>
     <string name="WiFi_setup_help">Configure WiFi for new plant</string>
-
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="app_info">Botanico is mobile application which helps you ...</string>
 </resources>

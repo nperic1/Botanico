@@ -9,65 +9,25 @@
     tools:context=".MainActivity">
 
     <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <include layout="@layout/toolbar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"></include>
+
+        <!-- Tu ide ostali UI -->
+        <FrameLayout
+            android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+        </FrameLayout>
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/nav_home"
-                    style="@style/TitleText"
-                    />
-
-                <Button
-                    android:id="@+id/toolbar_add_new_garden_button"
-                    android:onClick="openNewGardenActivity"
-                    android:layout_gravity="right"
-                    android:layout_height="wrap_content"
-                    android:layout_width="50dp"
-                    android:width="21dp"
-                    android:height="44.5dp"
-                    android:textColor="#FFFFFF"
-                    android:background="@color/colorPrimary"
-                    android:textSize="15pt"
-                    android:text="+"
-                    style="?android:attr/borderlessButtonStyle"
-
-                />
-
-                    />
-
-            </android.support.v7.widget.Toolbar>
-
-            <!-- Tu ide ostali UI -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rv_plants"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </FrameLayout>
+    </LinearLayout>
 
     <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
     <android.support.design.widget.NavigationView

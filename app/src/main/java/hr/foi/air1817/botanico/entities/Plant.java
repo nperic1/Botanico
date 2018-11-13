@@ -3,9 +3,9 @@ package hr.foi.air1817.botanico.entities;
 public class Plant {
     private int id;
     private String name;
-    private double last_temp;
-    private double last_humidity;
-    private double last_light;
+    private float last_temp;
+    private float last_humidity;
+    private float last_light;
     private String image_path;
 
     public int getId() {
@@ -16,7 +16,7 @@ public class Plant {
         this.id = id;
     }
 
-    public Plant(int id, String name, double last_temp, double last_humidity, double last_light, String image_path) {
+    public Plant(int id, String name, float last_temp, float last_humidity, float last_light, String image_path) {
         this.id = id;
         this.name = name;
         this.last_temp = last_temp;
@@ -33,27 +33,27 @@ public class Plant {
         this.name = name;
     }
 
-    public double getLast_temp() {
+    public float getLast_temp() {
         return last_temp;
     }
 
-    public void setLast_temp(double last_temp) {
+    public void setLast_temp(float last_temp) {
         this.last_temp = last_temp;
     }
 
-    public double getLast_humidity() {
+    public float getLast_humidity() {
         return last_humidity;
     }
 
-    public void setLast_humidity(double last_humidity) {
+    public void setLast_humidity(float last_humidity) {
         this.last_humidity = last_humidity;
     }
 
-    public double getLast_light() {
+    public float getLast_light() {
         return last_light;
     }
 
-    public void setLast_light(double last_light) {
+    public void setLast_light(float last_light) {
         this.last_light = last_light;
     }
 

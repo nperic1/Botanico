@@ -1,27 +1,62 @@
 package hr.foi.air1817.botanico;
 
+import android.app.Fragment;
+import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Intent;
-import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 
-public class PlantDetails extends AppCompatActivity {
+import java.util.List;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
+import butterknife.ButterKnife;
+import hr.foi.air1817.botanico.entities.Plant;
+
+public class PlantDetailsFragment extends Fragment {
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.plant_details_fragment, container, false);
+        return v;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        Bundle data = getArguments();
+        int id = (int) data.get("id");
+        Log.i("plant", Integer.toString(id));;
+
+        TextView temp = getView().findViewById(R.id.temperature_data);
+        TextView hum = getView().findViewById(R.id.humidity_data);
+        TextView lux = getView().findViewById(R.id.light_data);
+
+        /*temp.setText(Float.toString(p.getLast_temp()));
+        hum.setText(Float.toString(p.getLast_humidity()));
+        lux.setText(Float.toString(p.getLast_light()));*/
+        //TODO Dohvatiti biljku pomoću ID-a i prikazat podatke
+        temp.setText("3");
+        hum.setText("5");
+        lux.setText("6");
+    }
+
+
+    /*@RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_garden_view);
+        setContentView(R.layout.plant_details_fragment);
 
         PlantViewModel viewModel = ViewModelProviders.of(this).get(PlantViewModel.class);
         LiveData<DataSnapshot> liveData = viewModel.getDataSnapshotLiveData();
@@ -44,10 +79,6 @@ public class PlantDetails extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    public void goBack(View view){
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-    }
+    }*/
 
 }

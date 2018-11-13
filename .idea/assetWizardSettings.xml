@@ -70,7 +70,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_image_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_add_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -81,11 +81,9 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="ffffff" />
-                            <entry key="height" value="40" />
-                            <entry key="outputName" value="ic_image_white" />
+                            <entry key="outputName" value="ic_add_new" />
                             <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="C:\Users\Mirna" />
-                            <entry key="width" value="40" />
                           </map>
                         </option>
                       </PersistentState>

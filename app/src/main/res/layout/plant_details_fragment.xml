@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PlantDetails">
+    tools:context=".PlantDetailsFragment">
 
     <FrameLayout
         android:id="@+id/content_frame"
@@ -15,41 +15,15 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="10dp"
             android:orientation="vertical">
-
-            <android.support.v7.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                style="@style/ToolbarStyle"
-                >
-
-                <ImageButton
-                    android:id="@+id/back_button"
-                    android:onClick="goBack"
-                    android:background="@drawable/ic_arrow_back_white_24dp"
-                    android:layout_width="50dp"
-                    android:layout_height="fill_parent"
-                    android:layout_gravity="left"
-                    style="@style/ButtonStyle"
-                />
-
-                <Button
-                    android:id="@+id/garden_settings_button"
-                    android:layout_width="50dp"
-                    android:layout_height="fill_parent"
-                    android:layout_gravity="right"
-                    style="@style/ButtonStyle"
-                    android:text="Sett"
-                    android:textColor="#FFFFFF"
-                    />
-            </android.support.v7.widget.Toolbar>
 
 
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="200dp"
                 android:src="@mipmap/ic_botanico_logo"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="10dp"
                 />
 
             <LinearLayout

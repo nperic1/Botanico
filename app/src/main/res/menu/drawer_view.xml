@@ -12,7 +12,7 @@
             android:title="@string/nav_notification_settings" />
     </group>
 
-    <group android:checkableBehavior="single">
+    <group android:id="@+id/additional" android:checkableBehavior="single">
         <item
             android:id="@+id/nav_help"
             android:title="@string/nav_help" />
