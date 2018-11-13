@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +20,17 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import hr.foi.air1817.botanico.entities.Plant;
+
+import static android.support.constraint.Constraints.TAG;
 
 public class PlantDetailsFragment extends Fragment {
 
@@ -44,14 +51,28 @@ public class PlantDetailsFragment extends Fragment {
         final TextView hum = getView().findViewById(R.id.humidity_data);
         final TextView lux = getView().findViewById(R.id.light_data);
 
-        Bundle data = getArguments();
+        final Bundle data = getArguments();
         int id = (int) data.get("id");
-        CurrentPlantPath.path = "/" + id;
 
-        PlantViewModel viewModel = ViewModelProviders.of((FragmentActivity) getContext()).get(PlantViewModel.class);
-        LiveData<DataSnapshot> liveData = viewModel.getDataSnapshotLiveData();
+        DatabaseReference loadData = FirebaseDatabase.getInstance().getReference( "/" + id);
 
-        StorageReference loadImage = FirebaseStorage.getInstance().getReference( id+ "/avatar_image/avatar.jpg");
+        loadData.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Plant plant = dataSnapshot.getValue(Plant.class);
+                hum.setText(Float.toString(plant.getHumidity()));
+                lux.setText(Float.toString(plant.getLight()));
+                temp.setText(Float.toString(plant.getTemp()));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
+
+        StorageReference loadImage = FirebaseStorage.getInstance().getReference( id + "/avatar_image/avatar.jpg");
 
         loadImage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>(){
 
@@ -60,20 +81,6 @@ public class PlantDetailsFragment extends Fragment {
                 Picasso.with((FragmentActivity) getContext()).load(uri.toString()).into(plantImage);
             }
         });
-
-        //TODO staviti objekt u bazu
-        liveData.observe((FragmentActivity) getContext(), new Observer<DataSnapshot>() {
-            @Override
-            public void onChanged(@Nullable DataSnapshot dataSnapshot) {
-                if (dataSnapshot != null) {
-                    Plant currentPlantData = dataSnapshot.getValue(Plant.class);
-                    hum.setText(Float.toString(currentPlantData.getHumidity()));
-                    lux.setText(Float.toString(currentPlantData.getLight()));
-                    temp.setText(Float.toString(currentPlantData.getTemp()));
-                }
-            }
-        });
-
 
     }
 
