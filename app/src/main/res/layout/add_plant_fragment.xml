@@ -55,7 +55,7 @@
                     android:id="@+id/button_choose_image"
                     android:layout_width="250dp"
                     android:layout_height="150dp"
-                    android:layout_marginLeft="70dp"
+                    android:layout_gravity="center"
                     android:onClick="chooseImage"
                     android:scaleType="centerInside"
                     android:adjustViewBounds="true"

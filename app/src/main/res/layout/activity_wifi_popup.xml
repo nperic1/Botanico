@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WifiPopUp">7
+    tools:context=".WifiPopUp">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/content_frame"
@@ -14,27 +14,39 @@
 
         <TextView
             android:layout_width="300dp"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
             android:background="#FFFFFF"
             android:text="@string/wifi_setup"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textStyle="bold"
             >
-
-
-
         </TextView>
 
         <TextView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:layout_gravity="center"
             android:background="#FFFFFF"
             android:text="@string/wifi_steps"
             android:textSize="20dp"
+            />
 
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="textEnd"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:background="#FFFFFF"
+            android:text="OK"
+            android:textSize="20dp"
             />
 
 

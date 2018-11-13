@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
 
     private android.app.FragmentManager mFm;
 
+    private Button FAB;
+
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("message");
 
@@ -71,6 +73,11 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
         android.app.FragmentTransaction fm = getFragmentManager().beginTransaction();
         fm.replace(R.id.fragment_container, plf);
         fm.commit();
+    }
+
+    public void openAddGardenActivity(View view) {
+        Intent intent = new Intent(this, AddGardenActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -174,6 +181,8 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
         getSupportActionBar().setDisplayHomeAsUpEnabled(mFm.getBackStackEntryCount() > 0);
         mDrawerToggle.syncState();
     }
+
+
 
     View.OnClickListener navigationClick = new View.OnClickListener() {
         @Override
