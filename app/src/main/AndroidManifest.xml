@@ -19,9 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PlantDetailsFragment" />
         <activity android:name=".AddGardenActivity" />
-        <activity android:name=".WifiPopUp"></activity>
     </application>
 
 </manifest>
