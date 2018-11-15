@@ -11,12 +11,10 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -31,7 +29,7 @@ import java.util.UUID;
 
 import hr.foi.air1817.botanico.entities.Plant;
 
-public class AddGardenActivity extends AppCompatActivity {
+public class AddPlantActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private ImageButton btnChoose;
     private Uri filePath;

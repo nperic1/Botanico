@@ -6,33 +6,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.List;
-
-import butterknife.Bind;
 import butterknife.ButterKnife;
-import hr.foi.air1817.botanico.adapters.PlantsRecyclerViewAdapter;
-import hr.foi.air1817.botanico.helpers.MockDataLoader;
 
 
 public class MainActivity extends AppCompatActivity implements android.app.FragmentManager.OnBackStackChangedListener {
@@ -40,13 +22,8 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
     private DrawerLayout mDrawerLayout;
     private Toolbar mToolbar;
     private ActionBarDrawerToggle mDrawerToggle;
-
     private android.app.FragmentManager mFm;
 
-    private Button FAB;
-
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("message");
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -74,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
     }
 
     public void openAddGardenActivity(View view) {
-        Intent intent = new Intent(this, AddGardenActivity.class);
+        Intent intent = new Intent(this, AddPlantActivity.class);
         startActivity(intent);
     }
 
