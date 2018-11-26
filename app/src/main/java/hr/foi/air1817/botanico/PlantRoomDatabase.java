@@ -13,6 +13,7 @@ public abstract class PlantRoomDatabase extends RoomDatabase {
     private static PlantRoomDatabase INSTANCE;
 
     public abstract PlantDao plantDao();
+    public abstract PlantHistoryDao plantHistoryDao();
 
     public static PlantRoomDatabase getPlantRoomDatabase(Context context) {
         if (INSTANCE == null) {
