@@ -30,9 +30,9 @@ public class PlantListFragment extends android.app.Fragment {
 
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(llm);
-        PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantDao().deleteAll();
-        recyclerView.setAdapter(new PlantsRecyclerViewAdapter(getActivity(), MockDataLoader.getDemoData(PlantRoomDatabase.getPlantRoomDatabase(getContext()))));
-        //recyclerView.setAdapter(new PlantsRecyclerViewAdapter(getActivity(), PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantDao().getAllPlants()));
+        //PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantDao().deleteAll();
+        //recyclerView.setAdapter(new PlantsRecyclerViewAdapter(getActivity(), MockDataLoader.getDemoData(PlantRoomDatabase.getPlantRoomDatabase(getContext()))));
+        recyclerView.setAdapter(new PlantsRecyclerViewAdapter(getActivity(), PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantDao().getAllPlants()));
         return v;
     }
 

@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -19,12 +20,18 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 import hr.foi.air1817.botanico.entities.Plant;
@@ -34,7 +41,7 @@ public class AddPlantActivity extends AppCompatActivity {
     private ImageButton btnChoose;
     private Uri filePath;
     private final int PICK_IMAGE_REQUEST = 71;
-    private StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("/235112/avatar_image/"+ UUID.randomUUID().toString());;
+    private StorageReference storageReference;
     private TextInputLayout deviceId;
     private TextInputLayout plantName;
 
@@ -116,14 +123,28 @@ public class AddPlantActivity extends AppCompatActivity {
     }
 
     public void addPlant(View view){
-        uploadImage();
-        try{
-            PlantRoomDatabase db = PlantRoomDatabase.getPlantRoomDatabase(getApplicationContext());
-            Plant plant = new Plant(Integer.parseInt( deviceId.getEditText().getText().toString()), plantName.getEditText().getText().toString());
-            db.plantDao().insert(plant);
+        try {
+            checkIdExistenceFirebase(new FirebaseCallBack() {
+                @Override
+                public void onCallBack(boolean result) {
+                    if(result && !checkIdExistenceDatabase()){
+                        storageReference = FirebaseStorage.getInstance().getReference().child("/" + deviceId.getEditText().getText().toString() +"/avatar_image/avatar.jpg");
+                        uploadImage();
+
+                        PlantRoomDatabase db = PlantRoomDatabase.getPlantRoomDatabase(getApplicationContext());
+                        Plant plant = new Plant(Integer.parseInt( deviceId.getEditText().getText().toString()), plantName.getEditText().getText().toString());
+                        db.plantDao().insert(plant);
+                    }else {
+                        // id postoji ili u room bazi ili ne postoji firebaseu
+                        //TODO dodati poruku da id nije dobar
+                    }
+                }
+            });
         }catch(Exception e){
             e.printStackTrace();
+            //TODO dodati poruku da svi podaci i slika moraju biti uneseni
         }
+        //TODO nakon upload-a treba se vratiti na početni screen.
     }
 
     @Override
@@ -152,6 +173,43 @@ public class AddPlantActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void checkIdExistenceFirebase(final FirebaseCallBack firebaseCallBack){
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+
+
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.hasChild(deviceId.getEditText().getText().toString())){
+                    firebaseCallBack.onCallBack(true);
+                }else{
+                    firebaseCallBack.onCallBack(false);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private interface FirebaseCallBack{
+        void onCallBack(boolean result);
+    }
+
+    public boolean checkIdExistenceDatabase(){
+        List<Plant> plants = PlantRoomDatabase.getPlantRoomDatabase(getApplicationContext()).plantDao().getAllPlants();
+        for(Plant plant: plants){
+            if(plant.getId() == Integer.parseInt(deviceId.getEditText().getText().toString())){
+                return true;
+            }
+        }
+        return false;
     }
 }
 
