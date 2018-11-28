@@ -1,8 +1,13 @@
 package hr.foi.air1817.botanico.entities;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
+
+import java.util.Calendar;
+import java.util.Date;
 
 import static android.arch.persistence.room.ForeignKey.CASCADE;
 
@@ -10,21 +15,33 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
                                   parentColumns = "id",
                                   childColumns = "plantId",
                                   onDelete = CASCADE),
-        tableName = "plant_history_table")
+        tableName = "plant_history_table",
+        indices = {@Index(value = "plantId")})
 
 public class PlantHistory {
-    @PrimaryKey private int id;
+    @PrimaryKey (autoGenerate = true) private int id;
     private float temp;
     private float humidity;
     private float light;
     private int plantId;
+    private Date date;
 
-    public PlantHistory(int id, float temp, float humidity, float light, int plantId) {
+    public PlantHistory(int id, float temp, float humidity, float light, int plantId, Date date) {
         this.id = id;
         this.temp = temp;
         this.humidity = humidity;
         this.light = light;
         this.plantId = plantId;
+        this.date = date;
+    }
+
+    public PlantHistory(Plant plant) {
+        this.id = plant.getId();
+        this.temp = plant.getTemp();
+        this.humidity = plant.getHumidity();
+        this.light = plant.getLight();
+        this.plantId = plant.getId();
+        this.date = Calendar.getInstance().getTime();
     }
 
     public int getId() {
@@ -66,4 +83,13 @@ public class PlantHistory {
     public void setPlantId(int plantId) {
         this.plantId = plantId;
     }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
 }
