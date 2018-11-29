@@ -17,6 +17,9 @@ public interface PlantHistoryDao {
     @Delete
     void delete(PlantHistory... plantHistory);
 
+    @Query("DELETE FROM plant_history_table")
+    void deleteAll();
+
     @Query("SELECT * FROM plant_history_table")
     List<PlantHistory> getAllPlantHistories();
 

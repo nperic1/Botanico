@@ -63,18 +63,23 @@ public class PlantDetailsFragment extends Fragment {
         loadData.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Plant plant = dataSnapshot.getValue(Plant.class);
-                currentPlant.update(plant);
-                PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantDao().update(currentPlant);
+                Plant firebasePlantData = dataSnapshot.getValue(Plant.class);
+
+                if(!currentPlant.equals(firebasePlantData)){ // podaci su se promijenili u Firebasu
+                    PlantHistory plantHistory = new PlantHistory(firebasePlantData);
+                    plantHistory.setPlantId(currentPlant.getId());
+                    PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantHistoryDao().insert(plantHistory);
+
+                    currentPlant.update(firebasePlantData);
+                    PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantDao().update(currentPlant);
+                }
+
+                //TODO bind
                 hum.setText(Float.toString(currentPlant.getHumidity()));
                 lux.setText(Float.toString(currentPlant.getLight()));
                 temp.setText(Float.toString(currentPlant.getTemp()));
 
-
-                // TODO ako se podaci promijene dodaj novu povijest biljke
-               // PlantHistory plantHistory = new PlantHistory(plant);
-                //PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantHistoryDao().insert(plantHistory);
-
+                /*
                 //ispis povijesti trenutne biljke
                 List<PlantHistory> plantHistoryList = PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantHistoryDao().findHistoryForPlant(currentPlant.getId());
                 for(PlantHistory currentPlantHistory: plantHistoryList){
@@ -82,7 +87,7 @@ public class PlantDetailsFragment extends Fragment {
                     Log.d("plant_history", String.valueOf(currentPlantHistory.getHumidity()));
                     Log.d("plant_history", String.valueOf(currentPlantHistory.getLight()));
                     Log.d("plant_history", String.valueOf(currentPlantHistory.getTemp()));
-                    Log.d("plant_history", String.valueOf(currentPlantHistory.getPlantId()));
+                    Log.d("plant_history", String.valueOf(currentPlantHistory.getDate()));
                 }
 
                 //ispis svih biljki
@@ -92,7 +97,7 @@ public class PlantDetailsFragment extends Fragment {
                     Log.d("plant", String.valueOf(cpl.getHumidity()));
                     Log.d("plant", String.valueOf(cpl.getLight()));
                     Log.d("plant", String.valueOf(cpl.getTemp()));
-                }
+                }*/
             }
 
             @Override
