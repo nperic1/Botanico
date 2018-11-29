@@ -26,7 +26,10 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
 import hr.foi.air1817.botanico.entities.Plant;
+import hr.foi.air1817.botanico.entities.PlantHistory;
 
 import static android.support.constraint.Constraints.TAG;
 
@@ -52,7 +55,8 @@ public class PlantDetailsFragment extends Fragment {
         final TextView lux = getView().findViewById(R.id.light_data);
 
         final Bundle data = getArguments();
-        int id = (int) data.get("id");
+        final int id = (int) data.get("id");
+        final Plant currentPlant = getCurrentPlant(id);
 
         DatabaseReference loadData = FirebaseDatabase.getInstance().getReference( "/" + id);
 
@@ -60,9 +64,35 @@ public class PlantDetailsFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Plant plant = dataSnapshot.getValue(Plant.class);
-                hum.setText(Float.toString(plant.getHumidity()));
-                lux.setText(Float.toString(plant.getLight()));
-                temp.setText(Float.toString(plant.getTemp()));
+                currentPlant.update(plant);
+                PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantDao().update(currentPlant);
+                hum.setText(Float.toString(currentPlant.getHumidity()));
+                lux.setText(Float.toString(currentPlant.getLight()));
+                temp.setText(Float.toString(currentPlant.getTemp()));
+
+
+                // TODO ako se podaci promijene dodaj novu povijest biljke
+               // PlantHistory plantHistory = new PlantHistory(plant);
+                //PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantHistoryDao().insert(plantHistory);
+
+                //ispis povijesti trenutne biljke
+                List<PlantHistory> plantHistoryList = PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantHistoryDao().findHistoryForPlant(currentPlant.getId());
+                for(PlantHistory currentPlantHistory: plantHistoryList){
+                    Log.d("plant_history", String.valueOf(currentPlantHistory.getId()));
+                    Log.d("plant_history", String.valueOf(currentPlantHistory.getHumidity()));
+                    Log.d("plant_history", String.valueOf(currentPlantHistory.getLight()));
+                    Log.d("plant_history", String.valueOf(currentPlantHistory.getTemp()));
+                    Log.d("plant_history", String.valueOf(currentPlantHistory.getPlantId()));
+                }
+
+                //ispis svih biljki
+                List<Plant> plantList = PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantDao().getAllPlants();
+                for(Plant cpl: plantList){
+                    Log.d("plant", String.valueOf(cpl.getId()));
+                    Log.d("plant", String.valueOf(cpl.getHumidity()));
+                    Log.d("plant", String.valueOf(cpl.getLight()));
+                    Log.d("plant", String.valueOf(cpl.getTemp()));
+                }
             }
 
             @Override
@@ -82,7 +112,13 @@ public class PlantDetailsFragment extends Fragment {
             }
         });
 
+
+
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private Plant getCurrentPlant(int id){
+        return PlantRoomDatabase.getPlantRoomDatabase(getContext()).plantDao().findPlantById(id);
+    }
 
 }

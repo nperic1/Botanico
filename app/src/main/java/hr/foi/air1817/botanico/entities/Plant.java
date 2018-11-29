@@ -16,10 +16,6 @@ public class Plant {
     private float humidity;
     private float light;
 
-    public int getId() {
-        return id;
-    }
-
     public Plant(int id, String name) {
         this.id = id;
         this.name = name;
@@ -62,4 +58,17 @@ public class Plant {
         this.light = light;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(@NonNull int id) {
+        this.id = id;
+    }
+
+    public void update(Plant plant){
+        this.humidity = plant.getHumidity();
+        this.temp = plant.getTemp();
+        this.light = plant.getLight();
+    }
 }
