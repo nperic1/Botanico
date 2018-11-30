@@ -1,5 +1,6 @@
 package hr.foi.air1817.botanico;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
@@ -24,4 +25,7 @@ public interface PlantDao {
 
     @Query("SELECT * from plant_table ")
     List<Plant> getAllPlants();
+
+    @Query("SELECT * from plant_table ")
+    LiveData<List<Plant>> getAllLivePlants();
 }

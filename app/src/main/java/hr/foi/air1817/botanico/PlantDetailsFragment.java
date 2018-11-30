@@ -1,7 +1,10 @@
 package hr.foi.air1817.botanico;
 
 import android.annotation.TargetApi;
+import android.app.Application;
 import android.app.Fragment;
+import android.arch.lifecycle.LifecycleOwner;
+import android.arch.lifecycle.Observer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,9 +30,11 @@ import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.Objects;
 
 import hr.foi.air1817.botanico.entities.Plant;
 import hr.foi.air1817.botanico.entities.PlantHistory;
+import hr.foi.air1817.botanico.firebase.FirebaseQueryLiveData;
 
 import static android.support.constraint.Constraints.TAG;
 
