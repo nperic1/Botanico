@@ -1,4 +1,4 @@
-package hr.foi.air1817.botanico;
+package hr.foi.air1817.botanico.fragments;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import hr.foi.air1817.botanico.PlantRoomDatabase;
+import hr.foi.air1817.botanico.R;
 import hr.foi.air1817.botanico.adapters.PlantsRecyclerViewAdapter;
 import hr.foi.air1817.botanico.helpers.MockDataLoader;
 

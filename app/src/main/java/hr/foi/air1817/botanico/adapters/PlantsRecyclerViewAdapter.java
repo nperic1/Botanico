@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import hr.foi.air1817.botanico.PlantDetailsFragment;
+import hr.foi.air1817.botanico.fragments.PlantDetailsFragment;
 import hr.foi.air1817.botanico.R;
 import hr.foi.air1817.botanico.entities.Plant;
 import hr.foi.air1817.botanico.viewholders.PlantViewHolder;

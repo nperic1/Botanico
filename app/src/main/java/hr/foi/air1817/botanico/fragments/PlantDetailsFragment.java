@@ -1,4 +1,4 @@
-package hr.foi.air1817.botanico;
+package hr.foi.air1817.botanico.fragments;
 
 import android.annotation.TargetApi;
 import android.app.Application;
@@ -32,6 +32,8 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 import java.util.Objects;
 
+import hr.foi.air1817.botanico.PlantRoomDatabase;
+import hr.foi.air1817.botanico.R;
 import hr.foi.air1817.botanico.entities.Plant;
 import hr.foi.air1817.botanico.entities.PlantHistory;
 import hr.foi.air1817.botanico.firebase.FirebaseQueryLiveData;

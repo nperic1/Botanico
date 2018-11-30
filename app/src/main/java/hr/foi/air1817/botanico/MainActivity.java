@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import butterknife.ButterKnife;
+import hr.foi.air1817.botanico.fragments.InfoFragment;
+import hr.foi.air1817.botanico.fragments.PlantListFragment;
 
 
 public class MainActivity extends AppCompatActivity implements android.app.FragmentManager.OnBackStackChangedListener {

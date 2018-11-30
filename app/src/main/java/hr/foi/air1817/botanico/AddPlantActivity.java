@@ -185,7 +185,6 @@ public class AddPlantActivity extends AppCompatActivity {
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
-
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

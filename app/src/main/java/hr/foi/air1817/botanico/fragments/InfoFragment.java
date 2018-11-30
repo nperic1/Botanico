@@ -1,9 +1,11 @@
-package hr.foi.air1817.botanico;
+package hr.foi.air1817.botanico.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import hr.foi.air1817.botanico.R;
 
 public class InfoFragment extends android.app.Fragment {
     @Override
