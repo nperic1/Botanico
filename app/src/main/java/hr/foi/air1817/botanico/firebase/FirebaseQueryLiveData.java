@@ -1,7 +1,7 @@
 package hr.foi.air1817.botanico.firebase;
 
 import android.arch.lifecycle.LiveData;
-import android.support.annotation.NonNull;
+import android.os.Handler;
 import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
@@ -12,28 +12,39 @@ import com.google.firebase.database.ValueEventListener;
 
 public class FirebaseQueryLiveData extends LiveData<DataSnapshot> {
     private static final String LOG_TAG = "FirebaseQueryLiveData";
+    private boolean listenerRemovePending = false;
+    private final Handler handler = new Handler();
 
     private final Query query;
     private final MyValueEventListener listener = new MyValueEventListener();
-
-    public FirebaseQueryLiveData(Query query) {
-        this.query = query;
-    }
 
     public FirebaseQueryLiveData(DatabaseReference ref) {
         this.query = ref;
     }
 
+    private final Runnable removeListener = new Runnable() {
+        @Override
+        public void run() {
+            query.removeEventListener(listener);
+            listenerRemovePending = false;
+        }
+    };
+
     @Override
     protected void onActive() {
-        Log.d(LOG_TAG, "onActive");
-        query.addValueEventListener(listener);
+        if (listenerRemovePending) {
+            handler.removeCallbacks(removeListener);
+        }
+        else {
+            query.addValueEventListener(listener);
+        }
+        listenerRemovePending = false;
     }
 
     @Override
     protected void onInactive() {
-        Log.d(LOG_TAG, "onInactive");
-        query.removeEventListener(listener);
+        handler.postDelayed(removeListener, 2000);
+        listenerRemovePending = true;
     }
 
     private class MyValueEventListener implements ValueEventListener {
@@ -43,9 +54,8 @@ public class FirebaseQueryLiveData extends LiveData<DataSnapshot> {
         }
 
         @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
+        public void onCancelled(DatabaseError databaseError) {
             Log.e(LOG_TAG, "Can't listen to query " + query, databaseError.toException());
         }
-
     }
 }
