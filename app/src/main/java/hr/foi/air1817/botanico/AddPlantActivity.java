@@ -78,22 +78,13 @@ public class AddPlantActivity extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
 
-
-    public void showPopUp(View view){
-        final Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.wifi_dialog);
-
-        Button dialogButton = (Button) dialog.findViewById(R.id.dialog_ok);
-        dialogButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-        dialog.show();
+    public void showDialog(int title, int msg){
+        DialogManager.getInstance().showDialogOK(this, title, msg);
     }
 
+    public void showPopUp(View view){
+        showDialog(R.string.wifi_setup, R.string.wifi_steps);
+    }
 
     public void uploadImage() {
         if(filePath != null)
@@ -129,6 +120,11 @@ public class AddPlantActivity extends AppCompatActivity {
     }
 
     public void addPlant(View view){
+        if(deviceId.getEditText().getText().toString().equals("") || plantName.getEditText().getText().toString().equals("")){
+            showDialog(R.string.dialog_title_error, R.string.dialog_msg_not_filled);
+            return;
+        }
+
         try {
             checkIdExistenceFirebase(new FirebaseCallBack() {
                 @Override
@@ -140,17 +136,25 @@ public class AddPlantActivity extends AppCompatActivity {
                         PlantRoomDatabase db = PlantRoomDatabase.getPlantRoomDatabase(getApplicationContext());
                         Plant plant = new Plant(Integer.parseInt( deviceId.getEditText().getText().toString()), plantName.getEditText().getText().toString());
                         db.plantDao().insert(plant);
-                    }else {
-                        // id postoji ili u room bazi ili ne postoji firebaseu
-                        //TODO dodati poruku da id nije dobar
+
+                        openMainActivity();
+                    }
+                    else  if(result && checkIdExistenceDatabase()){
+                        //TODO povuć podatke ako id postoji
+                    }
+                    else {
+                        showDialog(R.string.dialog_title_error, R.string.dialog_msg_invalid);
                     }
                 }
             });
         }catch(Exception e){
             e.printStackTrace();
-            //TODO dodati poruku da svi podaci i slika moraju biti uneseni
         }
-        //TODO nakon upload-a treba se vratiti na početni screen.
+    }
+
+    private void openMainActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     @Override
