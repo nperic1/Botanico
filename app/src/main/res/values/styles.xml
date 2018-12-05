@@ -35,10 +35,6 @@
 
         </style>
 
-    <style name="BotanicoTheme.Launcher">
-        <item name="android:windowBackground">@drawable/launch_screen</item>
-    </style>
-
     <style name="GardenViewDataText">
         <item name="android:textColor">@color/textPrimary</item>
         <item name="android:textSize">10pt</item>
