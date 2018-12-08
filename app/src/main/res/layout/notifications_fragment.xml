@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="30px"
+        android:paddingBottom="30px"
+        android:paddingLeft="50px"
+        android:paddingRight="50px"
+        android:onClick="expandCollapseSettings">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notifications"
+            android:textColor="@color/textPrimary"
+            style="@style/TextAppearance.AppCompat.Medium"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="General settings"
+            android:textColor="@color/textPrimary"
+            style="@style/TextAppearance.AppCompat.Small"/>
+    </LinearLayout>
+
+    <!-- proširivi layout za postavke-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/notifications_layout"
+        android:orientation="vertical"
+        android:background="@color/colorBackground"
+        android:visibility="gone">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40px"
+            android:paddingBottom="40px"
+            android:paddingLeft="60px"
+            android:paddingRight="60px">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="After unplanned watering"
+                android:textColor="@color/textPrimary"
+                style="@style/TextAppearance.AppCompat.Medium"/>
+            <Switch
+                android:id="@+id/switch_unplanned_watering"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40px"
+            android:paddingBottom="40px"
+            android:paddingLeft="60px"
+            android:paddingRight="60px">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Moisture too low"
+                android:textColor="@color/textPrimary"
+                style="@style/TextAppearance.AppCompat.Medium"/>
+            <Switch
+                android:id="@+id/switch_low_moisture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40px"
+            android:paddingBottom="40px"
+            android:paddingLeft="60px"
+            android:paddingRight="60px">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Temperature warning"
+                android:textColor="@color/textPrimary"
+                style="@style/TextAppearance.AppCompat.Medium"/>
+            <Switch
+                android:id="@+id/switch_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="40px"
+        android:paddingBottom="40px"
+        android:paddingLeft="50px"
+        android:paddingRight="50px">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scheduled watering"
+            android:textColor="@color/textPrimary"
+            style="@style/TextAppearance.AppCompat.Medium"/>
+        <Switch
+            android:id="@+id/switch_watering"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="40px"
+        android:paddingBottom="40px"
+        android:paddingLeft="50px"
+        android:paddingRight="50px">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Low moisture"
+            android:textColor="@color/textPrimary"
+            style="@style/TextAppearance.AppCompat.Medium"/>
+        <Switch
+            android:id="@+id/switch_moisture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</LinearLayout>

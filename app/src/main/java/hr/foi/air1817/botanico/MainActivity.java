@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 import hr.foi.air1817.botanico.firebaseMessaging.BotanicoFirebaseMessagingService;
 import hr.foi.air1817.botanico.firebaseMessaging.BotanicoNotificationManager;
 import hr.foi.air1817.botanico.fragments.InfoFragment;
+import hr.foi.air1817.botanico.fragments.NotificationsFragment;
 import hr.foi.air1817.botanico.fragments.PlantListFragment;
 
 
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
         mToolbar.setNavigationOnClickListener(navigationClick);
 
         BotanicoNotificationManager.getInstance(getApplicationContext()).createChannel();
+        BotanicoNotificationManager.getInstance(getApplicationContext()).subscribeToTopic("weather");
 
         PlantListFragment plf = new PlantListFragment();
         android.app.FragmentTransaction fm = getFragmentManager().beginTransaction();
@@ -134,6 +136,11 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
                                 InfoFragment infoFragment = new InfoFragment();
                                 changeFragment(infoFragment);
                                 break;
+                            case R.id.nav_notification_settings:
+                                getSupportActionBar().setTitle(R.string.nav_notification_settings);
+                                NotificationsFragment notificationsFragment = new NotificationsFragment();
+                                changeFragment(notificationsFragment);
+                                break;
                         }
 
                         return true;
@@ -177,4 +184,13 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
             }
         }
     };
+
+    public void expandCollapseSettings(View view){
+        View v = findViewById(R.id.notifications_layout);
+
+        if(v.getVisibility() == View.GONE){
+            v.setVisibility(View.VISIBLE);
+        }
+        else v.setVisibility(View.GONE);
+    }
 }

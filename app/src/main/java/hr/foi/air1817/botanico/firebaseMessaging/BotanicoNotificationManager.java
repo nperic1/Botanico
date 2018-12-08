@@ -6,7 +6,13 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import hr.foi.air1817.botanico.MainActivity;
 import hr.foi.air1817.botanico.R;
@@ -68,5 +74,20 @@ public class BotanicoNotificationManager implements PushNotificationManager {
 
             mNotificationManager.createNotificationChannel(mChannel);
         }
+    }
+
+    @Override
+    public void subscribeToTopic(String topic) {
+        FirebaseMessaging.getInstance().subscribeToTopic("weather")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Uspješno ste se pretplatili na temu!";
+                        if (!task.isSuccessful()) {
+                            msg = "Greška!";
+                        }
+                        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
