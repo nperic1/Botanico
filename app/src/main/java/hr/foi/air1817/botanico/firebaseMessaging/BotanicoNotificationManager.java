@@ -45,7 +45,7 @@ public class BotanicoNotificationManager implements PushNotificationManager {
     public void displayNotification(String title, String body) {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context, CHANNEL_ID)
-                        .setSmallIcon(R.drawable.ic_add_new)
+                        .setSmallIcon(R.drawable.ic_notification)
                         .setContentTitle(title)
                         .setContentText(body);
 
