@@ -1,11 +1,7 @@
 package hr.foi.air1817.botanico;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -19,7 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import butterknife.ButterKnife;
-import hr.foi.air1817.botanico.firebaseMessaging.BotanicoFirebaseMessagingService;
 import hr.foi.air1817.botanico.firebaseMessaging.BotanicoNotificationManager;
 import hr.foi.air1817.botanico.fragments.InfoFragment;
 import hr.foi.air1817.botanico.fragments.NotificationsFragment;
@@ -54,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
         mToolbar.setNavigationOnClickListener(navigationClick);
 
         BotanicoNotificationManager.getInstance(getApplicationContext()).createChannel();
-        BotanicoNotificationManager.getInstance(getApplicationContext()).subscribeToTopic("weather");
 
         PlantListFragment plf = new PlantListFragment();
         android.app.FragmentTransaction fm = getFragmentManager().beginTransaction();

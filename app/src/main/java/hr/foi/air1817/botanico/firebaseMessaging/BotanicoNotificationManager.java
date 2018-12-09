@@ -8,14 +8,19 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.util.List;
+
 import hr.foi.air1817.botanico.MainActivity;
+import hr.foi.air1817.botanico.PlantRoomDatabase;
 import hr.foi.air1817.botanico.R;
+import hr.foi.air1817.botanico.entities.Plant;
 
 public class BotanicoNotificationManager implements PushNotificationManager {
     private Context context;
@@ -77,17 +82,45 @@ public class BotanicoNotificationManager implements PushNotificationManager {
     }
 
     @Override
-    public void subscribeToTopic(String topic) {
-        FirebaseMessaging.getInstance().subscribeToTopic("weather")
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        String msg = "Uspješno ste se pretplatili na temu!";
-                        if (!task.isSuccessful()) {
-                            msg = "Greška!";
+    public void subscribeToTopic(final String topic) {
+        List<Plant> plants = PlantRoomDatabase.getPlantRoomDatabase(context).plantDao().getAllPlants();
+        String topicName = "";
+
+        for (Plant p : plants) {
+            topicName = String.valueOf(p.getId()) + "_" + topic;
+
+            FirebaseMessaging.getInstance().subscribeToTopic(topicName)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            String msg = "Uspješno ste se pretplatili na temu!";
+                            if (!task.isSuccessful()) {
+                                msg = "Greška!";
+                            }
+                            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    });
+        }
+    }
+
+    @Override
+    public void unsubscribeFromTopic(String topic) {
+        List<Plant> plants = PlantRoomDatabase.getPlantRoomDatabase(context).plantDao().getAllPlants();
+        String topicName = "";
+
+        for (Plant p : plants) {
+            topicName = String.valueOf(p.getId()) + "_" + topic;
+            FirebaseMessaging.getInstance().unsubscribeFromTopic(topicName)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            String msg = "Uspješno ste se odjavili s teme!";
+                            if (!task.isSuccessful()) {
+                                msg = "Greška!";
+                            }
+                            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 }
