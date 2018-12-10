@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -45,7 +44,7 @@ public class BotanicoNotificationManager implements PushNotificationManager {
     public void displayNotification(String title, String body) {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context, CHANNEL_ID)
-                        .setSmallIcon(R.drawable.ic_notification)
+                        .setSmallIcon(R.drawable.ic_botanico)
                         .setContentTitle(title)
                         .setContentText(body);
 

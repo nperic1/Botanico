@@ -3,21 +3,26 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
+            android:icon="@drawable/ic_botanico"
             android:title="@string/nav_home" />
         <item
             android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_image"
             android:title="@string/nav_gallery" />
         <item
             android:id="@+id/nav_notification_settings"
+            android:icon="@drawable/ic_notifications"
             android:title="@string/nav_notification_settings" />
     </group>
 
     <group android:id="@+id/additional" android:checkableBehavior="single">
         <item
             android:id="@+id/nav_help"
+            android:icon="@drawable/ic_help"
             android:title="@string/nav_help" />
         <item
             android:id="@+id/nav_info"
+            android:icon="@drawable/ic_info"
             android:title="@string/nav_info" />
     </group>
 </menu>
