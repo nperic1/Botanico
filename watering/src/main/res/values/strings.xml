@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Watering</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="settings_automatic_watering">Automatic watering</string>
+    <string name="settings_moisture_min">When moisture under:</string>
+    <string name="settings_scheduled_watering">Scheduled watering</string>
 </resources>
