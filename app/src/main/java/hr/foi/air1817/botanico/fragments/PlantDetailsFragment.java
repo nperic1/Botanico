@@ -14,14 +14,17 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.constraint.solver.widgets.Snapshot;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.watering.GardenSettings;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.storage.FirebaseStorage;
@@ -89,8 +92,19 @@ public class PlantDetailsFragment extends Fragment {
                 Picasso.with((FragmentActivity) getContext()).load(uri.toString()).into(plantImage);
             }
         });
-
-
+        /**
+         * TODO: popravi referencu kod transaction.replace
+        final ImageButton gardenSettingsButton = (ImageButton) getView().findViewById(R.id.garden_settings_icon);
+        gardenSettingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Fragment fragment = new GardenSettings();
+                android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.nekajtuide, fragment);
+                transaction.commit();
+                }
+            });
+        */
 
     }
 

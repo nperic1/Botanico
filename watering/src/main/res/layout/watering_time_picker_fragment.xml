@@ -13,8 +13,11 @@
         android:orientation="vertical">
 
         <TimePicker
+            android:id="@+id/watering_time_picker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:numbersSelectorColor="#077FC0"
+            android:headerBackground="#077FC0"
             >
 
         </TimePicker>
@@ -26,17 +29,22 @@
             android:paddingLeft="180dp">
 
             <Button
+                android:id="@+id/OK_btn"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:text="OK"
-                android:background="@null"/>
+                android:background="@null"
+                android:textColor="#077FC0"
+                />
 
             <Button
+                android:id="@+id/cancel_btn"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:text="Cancel"
+                android:textColor="#077FC0"
                 android:background="@null"/>
 
         </LinearLayout>
