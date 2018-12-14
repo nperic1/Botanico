@@ -8,4 +8,7 @@
     <string name="settings_scheduled_watering">Scheduled watering</string>
     <string name="percentage">%</string>
     <string name="watering_time">08:00</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
