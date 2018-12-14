@@ -10,64 +10,139 @@
     <LinearLayout
         android:id="@+id/parent_container"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/automatic_watering"
+            android:id="@+id/automatic_watering_container"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal">
+            android:layout_height="120dp"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="2"
-                android:layout_height="match_parent"
-                android:text="@string/settings_automatic_watering"
-                android:paddingLeft="10dp"
-                style="@style/TitleText" />
+            <LinearLayout
+                android:id="@+id/automatic_watering"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
 
-            <Switch
-                android:id="@+id/automatic_watering_switch"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:paddingRight="40dp"
-                android:checked="true"
-                android:theme="@style/SwitchStyle" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="match_parent"
+                    android:text="@string/settings_automatic_watering"
+                    android:paddingLeft="10dp"
+                    style="@style/TitleText" />
+                <Switch
+                    android:id="@+id/automatic_watering_switch"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="40dp"
+                    android:checked="true"
+                    android:theme="@style/SwitchStyle" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:layout_height="50dp"
+                    android:text="@string/settings_moisture_min"
+                    style="@style/GeneralText"
+                    android:layout_marginLeft="30dp"
+                    />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1">
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="@string/percentage"
+                    android:gravity="center_vertical"
+                    style="@style/GeneralText"/>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_edit_settings"
+                    android:background="@null"
+                    android:layout_marginRight="35dp"
+                    />
+            </LinearLayout>
 
         </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/separator"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="120dp"
+            android:orientation="vertical"
+            android:paddingTop="10dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="match_parent"
+                    android:text="@string/settings_scheduled_watering"
+                    android:paddingLeft="10dp"
+                    style="@style/TitleText" />
+                <Switch
+                    android:id="@+id/scheduled_watering_switch"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="40dp"
+                    android:checked="true"
+                    android:theme="@style/SwitchStyle" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="2"
-                android:layout_height="match_parent"
-                android:text="@string/settings_moisture_min"
-                style="@style/GeneralText"
-                android:layout_marginLeft="30dp"
-                />
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent">
+            </LinearLayout>
 
-            </android.support.design.widget.TextInputLayout>
-
-            <ImageButton
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_edit_settings"
-                android:background="@null"
-                android:layout_marginRight="35dp" />
+                android:orientation="horizontal">
+                <TextView
 
+                    android:layout_width="0dp"
+                    android:layout_weight="8"
+                    android:layout_height="wrap_content"
+                    android:text="@string/watering_time"
+                    style="@style/WateringTimeText"
+                    android:layout_marginLeft="70dp"/>
+                <ImageButton
+                    android:paddingTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_edit_settings"
+                    android:background="@null"
+                    android:layout_marginRight="35dp"
+                    />
+
+            </LinearLayout>
         </LinearLayout>
-
 
     </LinearLayout>
 

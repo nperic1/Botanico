@@ -6,4 +6,6 @@
     <string name="settings_automatic_watering">Automatic watering</string>
     <string name="settings_moisture_min">When moisture under:</string>
     <string name="settings_scheduled_watering">Scheduled watering</string>
+    <string name="percentage">%</string>
+    <string name="watering_time">08:00</string>
 </resources>

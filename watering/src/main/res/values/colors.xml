@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="textPrimary">#3d3d3d</color>
     <color name="colorBackground">#f0f0f0</color>
+    <color name="separator">#7E55F3</color>
 </resources>
