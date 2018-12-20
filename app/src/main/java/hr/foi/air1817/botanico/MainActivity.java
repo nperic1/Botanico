@@ -2,6 +2,7 @@ package hr.foi.air1817.botanico;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -14,6 +15,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.watering.GardenSettings;
+
 import butterknife.ButterKnife;
 import hr.foi.air1817.botanico.firebaseMessaging.BotanicoNotificationManager;
 import hr.foi.air1817.botanico.fragments.InfoFragment;
@@ -21,7 +24,7 @@ import hr.foi.air1817.botanico.fragments.NotificationsFragment;
 import hr.foi.air1817.botanico.fragments.PlantListFragment;
 
 
-public class MainActivity extends AppCompatActivity implements android.app.FragmentManager.OnBackStackChangedListener {
+public class MainActivity extends AppCompatActivity implements android.app.FragmentManager.OnBackStackChangedListener, GardenSettings.OnFragmentInteractionListener {
 
     private DrawerLayout mDrawerLayout;
     private Toolbar mToolbar;
@@ -186,5 +189,10 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
             v.setVisibility(View.VISIBLE);
         }
         else v.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

@@ -92,19 +92,19 @@ public class PlantDetailsFragment extends Fragment {
                 Picasso.with((FragmentActivity) getContext()).load(uri.toString()).into(plantImage);
             }
         });
-        /**
-         * TODO: popravi referencu kod transaction.replace
+
         final ImageButton gardenSettingsButton = (ImageButton) getView().findViewById(R.id.garden_settings_icon);
         gardenSettingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Fragment fragment = new GardenSettings();
+                    Fragment gsf = new GardenSettings();
                 android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.nekajtuide, fragment);
+                transaction.replace(R.id.fragment_container, gsf);
+                transaction.addToBackStack("details");
                 transaction.commit();
                 }
             });
-        */
+
 
     }
 
