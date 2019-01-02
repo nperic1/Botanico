@@ -7,7 +7,7 @@
     <string name="nav_info">Info</string>
     <string name="add_screen_title">New garden</string>
     <string name="nav_plant_details">Plant details</string>
-    <string name="app_info">Botanico is a mobile application which helps you ...</string>
+    <string name="app_info">Botanico is a mobile application which helps you manage your self-watering smart garden.</string>
 
     <string name="wifi_steps">1. After setting up your new device, open your Wifi settings \n
         2. Connect your phone to BotanicoAP\n
