@@ -3,6 +3,7 @@ package hr.foi.air1817.botanico.fragments;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,14 +11,17 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
+import hr.foi.air1817.botanico.NavigationItem;
 import hr.foi.air1817.botanico.R;
 import hr.foi.air1817.botanico.firebaseMessaging.BotanicoNotificationManager;
 
-public class NotificationsFragment extends Fragment {
-    Switch low_moisture;
-    Switch unplanned_watering;
-    Switch temperature;
-    Switch watering;
+public class NotificationsFragment extends Fragment implements NavigationItem {
+    private Switch low_moisture;
+    private Switch unplanned_watering;
+    private Switch temperature;
+    private Switch watering;
+
+    private int position;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -81,5 +85,30 @@ public class NotificationsFragment extends Fragment {
         low_moisture.setChecked(sharedPreferences.getBoolean("low_moisture",false));
         unplanned_watering.setChecked(sharedPreferences.getBoolean("unplanned_watering",false));
         temperature.setChecked(sharedPreferences.getBoolean("temperature",false));
+    }
+
+    @Override
+    public String getItemName(Context context) {
+        return context.getString(R.string.nav_notification_settings);
+    }
+
+    @Override
+    public Drawable getIcon(Context context) {
+        return context.getDrawable(R.drawable.ic_notifications);
+    }
+
+    @Override
+    public int getPosition() {
+        return position;
+    }
+
+    @Override
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    @Override
+    public Fragment getFragment() {
+        return this;
     }
 }

@@ -1,5 +1,8 @@
 package hr.foi.air1817.botanico.fragments;
 
+import android.app.Fragment;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,12 +17,15 @@ import android.view.ViewGroup;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import hr.foi.air1817.botanico.NavigationItem;
 import hr.foi.air1817.botanico.PlantRoomDatabase;
 import hr.foi.air1817.botanico.R;
 import hr.foi.air1817.botanico.adapters.PlantsRecyclerViewAdapter;
 import hr.foi.air1817.botanico.helpers.MockDataLoader;
 
-public class PlantListFragment extends android.app.Fragment {
+public class PlantListFragment extends android.app.Fragment implements NavigationItem {
+
+    private int position;
 
     @Bind(R.id.rv_plants)
     public RecyclerView recyclerView;
@@ -56,4 +62,28 @@ public class PlantListFragment extends android.app.Fragment {
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.nav_home);
     }
 
+    @Override
+    public String getItemName(Context context) {
+        return context.getString(R.string.nav_home);
+    }
+
+    @Override
+    public Drawable getIcon(Context context) {
+        return context.getDrawable(R.drawable.ic_botanico);
+    }
+
+    @Override
+    public int getPosition() {
+        return position;
+    }
+
+    @Override
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    @Override
+    public Fragment getFragment() {
+        return this;
+    }
 }
