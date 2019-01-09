@@ -2,7 +2,6 @@ package hr.foi.air1817.botanico;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,11 +12,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-
-import com.example.watering.GardenSettings;
 
 import butterknife.ButterKnife;
 import hr.foi.air1817.botanico.firebaseMessaging.BotanicoNotificationManager;
@@ -28,7 +24,7 @@ import hr.foi.air1817.botanico.fragments.NotificationsFragment;
 import hr.foi.air1817.botanico.fragments.PlantListFragment;
 
 
-public class MainActivity extends AppCompatActivity implements android.app.FragmentManager.OnBackStackChangedListener, GardenSettings.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements android.app.FragmentManager.OnBackStackChangedListener, NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout mDrawerLayout;
     private Toolbar mToolbar;
@@ -153,11 +149,6 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
             }
         }
     };
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
