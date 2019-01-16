@@ -6,22 +6,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MoistureLevelGraphFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:id="@+id/parent_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.jjoe64.graphview.helper.GraphViewXML
+        <com.jjoe64.graphview.GraphView
             android:id="@+id/moisture_level_graph"
             android:layout_width="match_parent"
-            android:layout_height="200dip"
-            app:seriesData="0=5;2=5;3=0;4=2"
-            app:seriesType="bar"
-            app:seriesColor="#00cc00"
-            app:seriesTitle="Moisture"
-            android:title="Moisture level history"/>
+            android:layout_height="200dip"/>
 
     </LinearLayout>
 </FrameLayout>

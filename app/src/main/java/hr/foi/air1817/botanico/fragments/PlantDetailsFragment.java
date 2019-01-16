@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.watering.GardenSettings;
+import com.example.watering.MoistureLevelGraphFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.storage.FirebaseStorage;
@@ -33,6 +34,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import hr.foi.air1817.botanico.NavigationManager;
 import hr.foi.air1817.botanico.PlantRepository;
 import hr.foi.air1817.botanico.PlantViewModel;
 import hr.foi.air1817.botanico.helpers.CurrentPlant;
@@ -97,15 +99,19 @@ public class PlantDetailsFragment extends Fragment {
         gardenSettingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Fragment gsf = new GardenSettings();
-                android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, gsf);
-                transaction.addToBackStack("details");
-                transaction.commit();
+                Fragment gsf = new GardenSettings();
+                NavigationManager.getInstance().switchFragment(gsf, "details");
                 }
             });
 
-
+        final ImageButton humidtyButton = getActivity().findViewById(R.id.humidity_img);
+        humidtyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment mlg = new MoistureLevelGraphFragment();
+                NavigationManager.getInstance().switchFragment(mlg, "mositure_graph");
+            }
+        });
     }
 
 }

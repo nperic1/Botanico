@@ -1,5 +1,6 @@
 package hr.foi.air1817.botanico;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
@@ -68,5 +69,12 @@ public class NavigationManager {
             mActivity.getSupportActionBar().setTitle(selectedItem.getItemName(mActivity));
             startModule(selectedItem);
         }
+    }
+
+    public void switchFragment(Fragment fragment, String stackInfo){
+        android.app.FragmentTransaction transaction = mActivity.getFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.addToBackStack(stackInfo);
+        transaction.commit();
     }
 }
