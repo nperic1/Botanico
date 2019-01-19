@@ -10,42 +10,42 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import java.util.ArrayList;
+
 public class MoistureLevelGraphFragment extends Fragment {
+
+    public void onStart() {
+        super.onStart();
+
+        final Bundle data = getArguments();
+        ArrayList<String> dateList = data.getStringArrayList("date");
+        ArrayList<String> moistureList = data.getStringArrayList("moisture");
+        DataPoint[]dataPointArray = new DataPoint[dateList.size()];
+        for (int i = 0; i < dateList.size(); i++){
+            dataPointArray[i] = new DataPoint( Double.parseDouble(dateList.get(i)), Integer.parseInt(moistureList.get(i)));
+        }
+
+        drawGraph(dataPointArray);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.moisture_level_graph_fragment, container, false);
-
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-         drawGraph();
     }
 
-    private void drawGraph(){
+    private void drawGraph(DataPoint[] dataPointArray){
         GraphView graph = getActivity().findViewById(R.id.moisture_level_graph);
-
-        //getData()
-
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPointArray);
         series.setTitle("Moisture");
         series.setColor(R.color.colorAccent);
         graph.addSeries(series);
         graph.getLegendRenderer().setVisible(true);
         graph.setTitle("Moisture level");
-    }
-
-    private void getData(){
-
     }
 }
