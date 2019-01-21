@@ -7,24 +7,33 @@
 #include <TimeAlarms.h>  
 #include <HashMap.h>
 #include <iomanip>
+#include "DHT.h"
 
+#define DHTTYPE DHT11 
 #define DURATION 10000
 #define UPDATE_TIME 10000
 #define DEVICE_ID "235112/"
 #define FIREBASE_HOST "botanico-50074.firebaseio.com"
 #define FIREBASE_AUTH "XxxXIEZstrWMWCNNnvR7RUGyizc8cjtBk8E56g4V"
+#define LIGHT_SENSOR 35
+#define HUMIDITY_SENSOR 34
+#define DHT_SENSOR 15
+
+DHT dht(DHT_SENSOR, DHTTYPE);
 
 String currentTime;
 int minHumidity;
 String scheduledWateringTime;
 bool automaticWateringStatus;
 bool scheduledWateringStatus;
-int humidity;
-int light;
-int temp;
+int humidity = 0, light = 0, temp = 0;
+int counter = 0;
 
 void setup() {
   Serial.begin(9600);
+  pinMode(LIGHT_SENSOR, INPUT);
+  pinMode(HUMIDITY_SENSOR, INPUT);
+  dht.begin();
 
   WiFiManager wifiManager;
   wifiManager.autoConnect("botanicoAP"); 
@@ -55,21 +64,25 @@ void setup() {
 
   initializeClock();
   initializeVariables();
-  
-  //Alarm.timerRepeat(UPDATE_TIME, updateTemp()); // Update value every X seconds
-  //Alarm.timerRepeat(UPDATE_TIME, updateHumidity()); // Update value every X seconds
-  //Alarm.timerRepeat(UPDATE_TIME, updateLight()); // Update value every X seconds
 
   pinMode(2, OUTPUT);
 }
 
 void loop() {
+  if(counter * 1000 == UPDATE_TIME){
+    updateHumidity();
+    updateLight();
+    updateTemp();
+    counter = 0;
+  }
+  
   getCurrentTime();  
   
   automaticWatering();
   scheduledWatering();
 
-  delay(1000);
+  counter++;
+  delay(1000); 
 }
 
 void automaticWatering(){
@@ -87,15 +100,20 @@ void scheduledWatering(){
 }
 
 void updateTemp(){
-
+  if(!isnan(dht.readTemperature())){
+    temp = dht.readTemperature();
+    Firebase.setInt((String) DEVICE_ID + "/temp", temp);
+  }
 }
 
-void updateHumidity(){
-
+void updateHumidity(){ 
+  humidity = analogRead(HUMIDITY_SENSOR);
+  Firebase.setInt((String) DEVICE_ID + "/humidity", humidity);
 }
 
 void updateLight(){
-
+  light = analogRead(LIGHT_SENSOR);
+  Firebase.setInt((String) DEVICE_ID + "/light", light);
 }
 
 void watering(){
@@ -111,8 +129,7 @@ void getCurrentTime() {
   time_t tnow = time(nullptr);
   strftime(buffer, 30, "%X", localtime(&tnow));
   currentTime = (String) buffer;
-  Serial.println(currentTime + "fb:" + scheduledWateringTime);
-  //Firebase.setString((String) DEVICE_ID + "RTC",currentTime);
+  Serial.println(currentTime);
 }
 
 void initializeClock() {

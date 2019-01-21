@@ -15,7 +15,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -95,7 +94,10 @@ public class PlantDetailsFragment extends Fragment {
         gardenSettingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putInt("id", id);
                 Fragment gsf = new GardenSettings();
+                gsf.setArguments(args);
                 NavigationManager.getInstance().switchFragment(gsf, "details");
                 }
             });

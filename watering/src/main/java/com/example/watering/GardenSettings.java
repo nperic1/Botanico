@@ -24,13 +24,14 @@ import com.google.firebase.database.ValueEventListener;
 
 public class GardenSettings extends Fragment {
 
-    DatabaseReference loadScheduledWatering = FirebaseDatabase.getInstance().getReference( "/235112/scheduled_watering");
-    DatabaseReference loadAutomaticWatering = FirebaseDatabase.getInstance().getReference( "/235112/automatic_watering");
+    DatabaseReference loadScheduledWatering;
+    DatabaseReference loadAutomaticWatering;
     private TextInputEditText minMoisture;
     private TextView wateringTime;
     private Button saveChanges;
     private Switch automaticWateringSwitch;
     private Switch scheduledWateringSwitch;
+    private int plantId;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,12 @@ public class GardenSettings extends Fragment {
         saveChanges = getActivity().findViewById(R.id.save_watering_settings);
         automaticWateringSwitch = getActivity().findViewById(R.id.automatic_watering_switch);
         scheduledWateringSwitch = getActivity().findViewById(R.id.scheduled_watering_switch);
+
+        final Bundle data = getArguments();
+        plantId = (int) data.get("id");
+
+        loadScheduledWatering = FirebaseDatabase.getInstance().getReference( plantId + "/scheduled_watering");
+        loadAutomaticWatering = FirebaseDatabase.getInstance().getReference( plantId + "/automatic_watering");
 
         wateringTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +81,7 @@ public class GardenSettings extends Fragment {
                     public void onClick(View v) {
                         String hour = tp.getCurrentHour() > 10? Integer.toString(tp.getCurrentHour()): "0"+tp.getCurrentHour();
                         String minute = tp.getCurrentMinute() > 10 ? Integer.toString(tp.getCurrentMinute()): "0"+tp.getCurrentMinute();
-                        wateringTime.setText(hour + ":" + minute);
+                        wateringTime.setText(hour + ":" + minute + ":00");
                         timePickerDialog.dismiss();
                     }
                 });
@@ -126,11 +133,11 @@ public class GardenSettings extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 if (isChecked) {
-                    FirebaseDatabase.getInstance().getReference( "/235112/scheduled_watering")
+                    FirebaseDatabase.getInstance().getReference( plantId + "/scheduled_watering")
                                     .child("status")
                                     .setValue(true);
                 } else {
-                    FirebaseDatabase.getInstance().getReference( "/235112/scheduled_watering")
+                    FirebaseDatabase.getInstance().getReference( plantId + "/scheduled_watering")
                                     .child("status")
                                     .setValue(false);
                 }
@@ -141,11 +148,11 @@ public class GardenSettings extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    FirebaseDatabase.getInstance().getReference( "/235112/automatic_watering")
+                    FirebaseDatabase.getInstance().getReference( plantId + "/automatic_watering")
                             .child("status")
                             .setValue(true);
                 } else {
-                    FirebaseDatabase.getInstance().getReference( "/235112/automatic_watering")
+                    FirebaseDatabase.getInstance().getReference( plantId + "/automatic_watering")
                             .child("status")
                             .setValue(false);
                 }
@@ -155,13 +162,13 @@ public class GardenSettings extends Fragment {
 
 
     public void updateAutomaticWatering(String humidity){
-        FirebaseDatabase.getInstance().getReference( "/235112/automatic_watering")
+        FirebaseDatabase.getInstance().getReference( plantId + "/automatic_watering")
                         .child("min_humidity")
                         .setValue(Float.parseFloat(humidity));
     }
 
     public void updateScheduledWatering(String time){
-        FirebaseDatabase.getInstance().getReference( "/235112/scheduled_watering")
+        FirebaseDatabase.getInstance().getReference( plantId + "/scheduled_watering")
                 .child("time")
                 .setValue(time);
     }
