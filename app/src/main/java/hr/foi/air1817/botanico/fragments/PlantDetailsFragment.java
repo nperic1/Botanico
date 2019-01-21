@@ -12,7 +12,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,20 +31,17 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 import hr.foi.air1817.botanico.NavigationManager;
 import hr.foi.air1817.botanico.PlantViewModel;
-import hr.foi.air1817.botanico.helpers.CurrentPlant;
 import hr.foi.air1817.botanico.R;
 import hr.foi.air1817.botanico.entities.Plant;
+import hr.foi.air1817.botanico.helpers.CurrentPlant;
 
 public class PlantDetailsFragment extends Fragment {
+    final ArrayList<String> dateList = new ArrayList<>();
+    final ArrayList<String> moistureList = new ArrayList<>();
     int id;
 
     @Override
@@ -59,7 +55,6 @@ public class PlantDetailsFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.nav_plant_details);
 
         final ImageView plantImage = getView().findViewById(R.id.plantImage);
@@ -70,7 +65,7 @@ public class PlantDetailsFragment extends Fragment {
         final Bundle data = getArguments();
         id = (int) data.get("id");
         CurrentPlant.path = Integer.toString(id);
-
+        getDataForBundle();
         final PlantViewModel viewModel = ViewModelProviders.of((AppCompatActivity)getActivity()).get(PlantViewModel.class);
         LiveData<Plant> liveData = viewModel.getPlantLiveData();
 
@@ -108,25 +103,6 @@ public class PlantDetailsFragment extends Fragment {
         humidtyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final ArrayList<String> dateList = new ArrayList<>();
-                final ArrayList<String> moistureList = new ArrayList<>();
-                DatabaseReference loadData = FirebaseDatabase.getInstance().getReference( "/"+ id +"/history");
-                loadData.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                        for (DataSnapshot dsp : dataSnapshot.getChildren()) {
-                            dateList.add(String.valueOf( dsp.child("date").getValue()).substring(0, 2));
-                            moistureList.add(String.valueOf(dsp.child("moisture").getValue()));
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-
                 Bundle args = new Bundle();
                 args.putStringArrayList("moisture", moistureList);
                 args.putStringArrayList("date", dateList);
@@ -137,5 +113,23 @@ public class PlantDetailsFragment extends Fragment {
         });
     }
 
+    private void getDataForBundle() {
+        if (dateList.isEmpty() && moistureList.isEmpty()) {
+            DatabaseReference loadData = FirebaseDatabase.getInstance().getReference("/" + id + "/history");
+            loadData.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot dsp : dataSnapshot.getChildren()) {
+                        dateList.add(String.valueOf(dsp.child("date").getValue()).substring(0, 2));
+                        moistureList.add(String.valueOf(dsp.child("moisture").getValue()));
+                    }
+                }
 
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
+    }
 }

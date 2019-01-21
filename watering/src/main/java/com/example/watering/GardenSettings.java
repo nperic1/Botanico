@@ -51,6 +51,7 @@ public class GardenSettings extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 PlantScheduledWatering plantScheduledWatering = dataSnapshot.getValue(PlantScheduledWatering.class);
+                scheduledWateringSwitch.setChecked(plantScheduledWatering.status);
                 wateringTime.setText(plantScheduledWatering.time);
             }
 
@@ -64,6 +65,7 @@ public class GardenSettings extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 PlantAutomaticWatering plantAutomaticWatering = dataSnapshot.getValue(PlantAutomaticWatering.class);
+                automaticWateringSwitch.setChecked(plantAutomaticWatering.status);
                 minMoisture.setText(String.valueOf(plantAutomaticWatering.min_humidity));
             }
 
