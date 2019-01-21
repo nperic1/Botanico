@@ -35,5 +35,21 @@
     <string name="subscribe">Subscription succeeded!</string>
     <string name="unsubscribe">Subscription cancelled!</string>
 
+    <string name="help_get_started">How to get started</string>
+    <string name="help_get_started_1">1. Add a new plant</string>
+    <string name="help_get_started_1_text">From the home screen press the floating + button. Enter the Device ID of your watering unit, garden name and choose an image for your new plant.</string>
+    <string name="help_get_started_2">2. Configure WiFi for new plant</string>
+    <string name="help_get_started_2_text">Press the (?) button for instructions on how to setup WiFi.</string>
+    <string name="help_get_started_3">3. You\'re all set!</string>
+    <string name="help_data">How to view data</string>
+    <string name="help_data_1">1. Select a plant form the Home screen</string>
+    <string name="help_data_2">2. Press one of the sensor icons</string>
+    <string name="help_watering">How to configure watering</string>
+    <string name="help_watering_1">1. Go to Home>Plant>Garden Settings</string>
+    <string name="help_watering_2">2. Toggle Automatic watering</string>
+    <string name="help_watering_2_text">Turn on to have your plant watered when moisture level is under specifc value.</string>
+    <string name="help_watering_3">3. Toggle Scheduled watering</string>
+    <string name="help_watering_3_text">Turn on to have your plant watered every da at a specific time.</string>
+    <string name="help_link"><a href="https://www.dropbox.com/s/kj5byuicylptn7v/Botanico%20-%20korisni%C4%8Dka%20dokumentacija.docx?dl=0">Learn more</a></string>
 
 </resources>
