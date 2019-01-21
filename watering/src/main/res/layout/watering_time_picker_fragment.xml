@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".WateringTimePicker">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <LinearLayout
+        android:id="@+id/time_picker_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TimePicker
             android:id="@+id/watering_time_picker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:numbersSelectorColor="#077FC0"
-            android:headerBackground="#077FC0"
-            >
-
+            android:numbersSelectorColor="@color/colorAccent"
+            android:headerBackground="@color/colorPrimary"
+            android:descendantFocusability="blocksDescendants">
         </TimePicker>
 
         <LinearLayout
@@ -34,19 +32,17 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:text="OK"
-                android:background="@null"
-                android:textColor="#077FC0"
-                />
-
+                android:textColor="@color/colorPrimary"
+                android:background="@null"/>
             <Button
                 android:id="@+id/cancel_btn"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:text="Cancel"
-                android:textColor="#077FC0"
+                android:textColor="@color/colorPrimary"
                 android:background="@null"/>
 
         </LinearLayout>
     </LinearLayout>
-</FrameLayout>
+</android.support.design.widget.CoordinatorLayout>

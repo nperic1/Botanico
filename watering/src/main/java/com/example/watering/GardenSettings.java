@@ -1,5 +1,6 @@
 package com.example.watering;
 
+import android.app.Dialog;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,6 +12,8 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -47,6 +50,39 @@ public class GardenSettings extends Fragment {
         automaticWateringSwitch = getActivity().findViewById(R.id.automatic_watering_switch);
         scheduledWateringSwitch = getActivity().findViewById(R.id.scheduled_watering_switch);
 
+        wateringTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog timePickerDialog = new Dialog(getActivity());
+                timePickerDialog.setContentView(R.layout.watering_time_picker_fragment);
+
+                final TimePicker tp = timePickerDialog.findViewById(R.id.watering_time_picker);
+                tp.setIs24HourView(true);
+
+                Button okButton = timePickerDialog.findViewById(R.id.OK_btn);
+                Button cancelButton = timePickerDialog.findViewById(R.id.cancel_btn);
+
+                cancelButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        timePickerDialog.dismiss();
+                    }
+                });
+
+                okButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String hour = tp.getCurrentHour() > 10? Integer.toString(tp.getCurrentHour()): "0"+tp.getCurrentHour();
+                        String minute = tp.getCurrentMinute() > 10 ? Integer.toString(tp.getCurrentMinute()): "0"+tp.getCurrentMinute();
+                        wateringTime.setText(hour + ":" + minute);
+                        timePickerDialog.dismiss();
+                    }
+                });
+
+                timePickerDialog.show();
+            }
+        });
+
         loadScheduledWatering.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -79,8 +115,9 @@ public class GardenSettings extends Fragment {
             @Override
             public void onClick(View v) {
                 updateAutomaticWatering(minMoisture.getText().toString());
-                //updateScheduledWatering(wateringTime.getText().toString());
-                //TODO dialog o upjesnim promijenama
+                updateScheduledWatering(wateringTime.getText().toString());
+
+                Toast.makeText(getActivity(), getString(R.string.changes_saved), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -125,7 +162,7 @@ public class GardenSettings extends Fragment {
 
     public void updateScheduledWatering(String time){
         FirebaseDatabase.getInstance().getReference( "/235112/scheduled_watering")
-                .child("min_humidity")
+                .child("time")
                 .setValue(time);
     }
 }

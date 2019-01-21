@@ -42,7 +42,8 @@
                         android:layout_height="100dp"
                         android:orientation="horizontal"
                         android:paddingTop="15dp"
-                        >
+                        android:id="@+id/humidity_img"
+                        android:clickable="true">
 
                         <ImageButton
                             android:layout_width="0dp"
@@ -50,16 +51,16 @@
                             android:layout_height="fill_parent"
                             android:scaleType="fitStart"
                             android:layout_marginLeft="40dp"
-                            android:id="@+id/humidity_img"
                             android:src="@mipmap/ic_humidity"
                             android:background="@null"
-                            />
+                            android:clickable="false"/>
                         <TextView
                             android:id="@+id/humidity_data"
                             android:layout_width="0dp"
                             android:layout_height="fill_parent"
                             android:layout_weight="3"
-                            android:gravity="center"
+                            android:paddingLeft="30dp"
+                            android:gravity="center_vertical"
                             style="@style/GardenViewDataText"
                             />
                     </LinearLayout>
@@ -86,7 +87,8 @@
                             android:layout_width="0dp"
                             android:layout_height="fill_parent"
                             android:layout_weight="3"
-                            android:gravity="center"
+                            android:paddingLeft="30dp"
+                            android:gravity="center_vertical"
                             style="@style/GardenViewDataText"
                             />
 
@@ -114,7 +116,8 @@
                             android:layout_width="0dp"
                             android:layout_height="fill_parent"
                             android:layout_weight="3"
-                            android:gravity="center"
+                            android:paddingLeft="30dp"
+                            android:gravity="center_vertical"
                             style="@style/GardenViewDataText"
                             />
                     </LinearLayout>
@@ -124,7 +127,8 @@
                         android:layout_height="100dp"
                         android:orientation="horizontal"
                         android:paddingTop="15dp"
-                        >
+                        android:id="@+id/garden_settings_icon"
+                        android:clickable="true">
 
                         <ImageButton
                             android:layout_width="0dp"
@@ -132,17 +136,17 @@
                             android:layout_height="fill_parent"
                             android:scaleType="fitStart"
                             android:layout_marginLeft="40dp"
-                            android:id="@+id/garden_settings_icon"
                             android:src="@mipmap/ic_garden_settings"
                             android:background="@null"
-                            />
+                            android:clickable="false"/>
                         <TextView
                             android:id="@+id/garden_settings_text"
                             android:layout_width="0dp"
                             android:layout_height="fill_parent"
                             android:layout_weight="3"
                             android:text="Garden settings"
-                            android:gravity="center"
+                            android:paddingLeft="30dp"
+                            android:gravity="center_vertical"
                             style="@style/GardenViewDataText"
                             />
                     </LinearLayout>

@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.watering.GardenSettings;
@@ -74,9 +75,9 @@ public class PlantDetailsFragment extends Fragment {
             @Override
             public void onChanged(@Nullable Plant plant) {
                 //TODO bind
-                hum.setText(Float.toString(plant.getHumidity()));
-                lux.setText(Float.toString(plant.getLight()));
-                temp.setText(Float.toString(plant.getTemp()));
+                hum.setText(Float.toString(plant.getHumidity()) + " %");
+                lux.setText(Float.toString(plant.getLight()) + " K");
+                temp.setText(Float.toString(plant.getTemp()) + " °C");
             }
         });
 
@@ -90,7 +91,7 @@ public class PlantDetailsFragment extends Fragment {
             }
         });
 
-        final ImageButton gardenSettingsButton = getView().findViewById(R.id.garden_settings_icon);
+        final LinearLayout gardenSettingsButton = getActivity().findViewById(R.id.garden_settings_icon);
         gardenSettingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,8 +100,8 @@ public class PlantDetailsFragment extends Fragment {
                 }
             });
 
-        final ImageButton humidtyButton = getActivity().findViewById(R.id.humidity_img);
-        humidtyButton.setOnClickListener(new View.OnClickListener() {
+        final LinearLayout humidityButton = getActivity().findViewById(R.id.humidity_img);
+        humidityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle args = new Bundle();
@@ -108,7 +109,7 @@ public class PlantDetailsFragment extends Fragment {
                 args.putStringArrayList("date", dateList);
                 Fragment mlg = new MoistureLevelGraphFragment();
                 mlg.setArguments(args);
-                NavigationManager.getInstance().switchFragment(mlg, "mositure_graph");
+                NavigationManager.getInstance().switchFragment(mlg, "moisture_graph");
             }
         });
     }
