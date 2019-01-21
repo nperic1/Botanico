@@ -92,9 +92,9 @@ public class BotanicoNotificationManager implements PushNotificationManager {
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            String msg = "Uspješno ste se pretplatili na temu!";
+                            String msg = context.getString(R.string.subscribe);
                             if (!task.isSuccessful()) {
-                                msg = "Greška!";
+                                msg = context.getString(R.string.dialog_title_error);
                             }
                             Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
                         }
@@ -113,9 +113,9 @@ public class BotanicoNotificationManager implements PushNotificationManager {
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            String msg = "Uspješno ste se odjavili s teme!";
+                            String msg = context.getString(R.string.unsubscribe);
                             if (!task.isSuccessful()) {
-                                msg = "Greška!";
+                                msg = context.getString(R.string.dialog_title_error);
                             }
                             Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
                         }

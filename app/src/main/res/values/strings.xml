@@ -32,7 +32,8 @@
     <string name="dialog_msg_invalid">Invalid device ID</string>
     <string name="dialog_msg_not_filled">Device ID and plant name are required!</string>
 
-
+    <string name="subscribe">Subscription succeeded!</string>
+    <string name="unsubscribe">Subscription cancelled!</string>
 
 
 </resources>
