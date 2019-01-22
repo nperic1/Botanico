@@ -2,8 +2,7 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".WateringTimePicker">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/time_picker_frame"

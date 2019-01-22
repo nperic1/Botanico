@@ -61,7 +61,7 @@ public class GardenSettings extends Fragment {
             @Override
             public void onClick(View v) {
                 final Dialog timePickerDialog = new Dialog(getActivity());
-                timePickerDialog.setContentView(R.layout.watering_time_picker_fragment);
+                timePickerDialog.setContentView(R.layout.watering_time_picker_dialog);
 
                 final TimePicker tp = timePickerDialog.findViewById(R.id.watering_time_picker);
                 tp.setIs24HourView(true);

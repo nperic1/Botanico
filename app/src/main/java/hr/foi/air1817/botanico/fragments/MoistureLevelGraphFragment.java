@@ -1,4 +1,4 @@
-package com.example.watering;
+package hr.foi.air1817.botanico.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
+
+import hr.foi.air1817.botanico.R;
 
 public class MoistureLevelGraphFragment extends Fragment {
 
@@ -43,7 +45,7 @@ public class MoistureLevelGraphFragment extends Fragment {
         GraphView graph = getActivity().findViewById(R.id.moisture_level_graph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPointArray);
         series.setTitle("Moisture");
-        series.setColor(R.color.colorAccent);
+        series.setColor(com.example.watering.R.color.colorAccent);
         graph.addSeries(series);
         graph.getLegendRenderer().setVisible(true);
         graph.setTitle("Moisture level");
