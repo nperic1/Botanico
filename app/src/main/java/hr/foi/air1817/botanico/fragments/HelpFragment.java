@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import hr.foi.air1817.botanico.NavigationItem;
+import com.example.core.NavigationItem;
 import hr.foi.air1817.botanico.R;
 
 public class HelpFragment extends Fragment implements NavigationItem {

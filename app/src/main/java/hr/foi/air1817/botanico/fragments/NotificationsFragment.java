@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
-import hr.foi.air1817.botanico.NavigationItem;
+import com.example.core.NavigationItem;
 import hr.foi.air1817.botanico.R;
 import hr.foi.air1817.botanico.firebaseMessaging.BotanicoNotificationManager;
 

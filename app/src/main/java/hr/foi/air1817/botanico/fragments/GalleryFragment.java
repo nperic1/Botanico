@@ -4,12 +4,10 @@ import android.app.Fragment;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -24,8 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import hr.foi.air1817.botanico.MainActivity;
-import hr.foi.air1817.botanico.NavigationItem;
+import com.example.core.NavigationItem;
 import hr.foi.air1817.botanico.R;
 import hr.foi.air1817.botanico.adapters.GalleryAdapter;
 import hr.foi.air1817.botanico.entities.GalleryItem;

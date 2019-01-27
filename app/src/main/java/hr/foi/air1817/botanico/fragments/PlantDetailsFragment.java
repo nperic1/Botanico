@@ -32,6 +32,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import hr.foi.air1817.botanico.ActuatorManager;
 import hr.foi.air1817.botanico.NavigationManager;
 import hr.foi.air1817.botanico.PlantViewModel;
 import hr.foi.air1817.botanico.R;
@@ -56,6 +57,8 @@ public class PlantDetailsFragment extends Fragment {
         super.onStart();
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.nav_plant_details);
 
+
+
         final ImageView plantImage = getView().findViewById(R.id.plantImage);
         final TextView temp = getView().findViewById(R.id.temperature_data);
         final TextView hum = getView().findViewById(R.id.humidity_data);
@@ -68,11 +71,12 @@ public class PlantDetailsFragment extends Fragment {
         final PlantViewModel viewModel = ViewModelProviders.of((AppCompatActivity)getActivity()).get(PlantViewModel.class);
         LiveData<Plant> liveData = viewModel.getPlantLiveData();
 
+        getActuators();
 
         liveData.observe((AppCompatActivity) getActivity(), new Observer<Plant>() {
             @Override
             public void onChanged(@Nullable Plant plant) {
-                //TODO bind
+
                 hum.setText(Float.toString(plant.getHumidity()) + " %");
                 lux.setText(Float.toString(plant.getLight()) + " K");
                 temp.setText(Float.toString(plant.getTemp()) + " °C");
@@ -88,18 +92,6 @@ public class PlantDetailsFragment extends Fragment {
                 Picasso.with(getContext()).load(uri.toString()).into(plantImage);
             }
         });
-
-        final LinearLayout gardenSettingsButton = getActivity().findViewById(R.id.garden_settings_icon);
-        gardenSettingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle args = new Bundle();
-                args.putInt("id", id);
-                Fragment gsf = new GardenSettings();
-                gsf.setArguments(args);
-                NavigationManager.getInstance().switchFragment(gsf, "details");
-                }
-            });
 
         final LinearLayout humidityButton = getActivity().findViewById(R.id.humidity_img);
         humidityButton.setOnClickListener(new View.OnClickListener() {
@@ -133,5 +125,10 @@ public class PlantDetailsFragment extends Fragment {
                 }
             });
         }
+    }
+
+    private void getActuators(){
+        ActuatorManager am = ActuatorManager.getInstance();
+        am.addItem(new GardenSettings(), id, getActivity());
     }
 }

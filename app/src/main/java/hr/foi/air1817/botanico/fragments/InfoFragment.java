@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import hr.foi.air1817.botanico.NavigationItem;
+import com.example.core.NavigationItem;
 import hr.foi.air1817.botanico.R;
 
 public class InfoFragment extends android.app.Fragment implements NavigationItem {

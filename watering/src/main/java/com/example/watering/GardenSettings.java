@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.core.ActuatorItem;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-public class GardenSettings extends Fragment {
+public class GardenSettings extends Fragment implements ActuatorItem {
 
     DatabaseReference loadScheduledWatering;
     DatabaseReference loadAutomaticWatering;
@@ -171,5 +172,15 @@ public class GardenSettings extends Fragment {
         FirebaseDatabase.getInstance().getReference( plantId + "/scheduled_watering")
                 .child("time")
                 .setValue(time);
+    }
+
+    @Override
+    public Fragment getFragment() {
+        return this;
+    }
+
+    @Override
+    public int getButton() {
+        return R.layout.garden_settings_button;
     }
 }

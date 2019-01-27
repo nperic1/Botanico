@@ -1,4 +1,4 @@
-package hr.foi.air1817.botanico;
+package com.example.core;
 
 import android.app.Activity;
 import android.app.Fragment;
