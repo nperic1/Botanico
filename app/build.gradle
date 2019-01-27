@@ -56,6 +56,7 @@ dependencies {
     implementation 'com.jjoe64:graphview:4.2.2'
 
     implementation project (':watering')
+    implementation project (':core')
 
     annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
     androidTestImplementation "android.arch.persistence.room:testing:1.1.1"
