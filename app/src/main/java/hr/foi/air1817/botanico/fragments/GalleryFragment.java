@@ -2,6 +2,7 @@ package hr.foi.air1817.botanico.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
@@ -25,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,15 +35,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import hr.foi.air1817.botanico.AddPlantActivity;
 import hr.foi.air1817.botanico.NavigationItem;
 import hr.foi.air1817.botanico.PlantRoomDatabase;
 import hr.foi.air1817.botanico.R;
@@ -57,6 +64,8 @@ public class GalleryFragment extends Fragment implements NavigationItem {
     private int position;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     GridView galleryGridView;
+    private Uri filePath;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.gallery_fragment, container, false);
@@ -77,13 +86,13 @@ public class GalleryFragment extends Fragment implements NavigationItem {
             }
         });
 
-        galleryGridView = (GridView) view.findViewById(R.id.gallery_gridview) ;
+        galleryGridView = (GridView) view.findViewById(R.id.gallery_gridview);
         galleryGridView.setAdapter(new GalleryGridAdapter(getActivity(), GalleryItem.getListaUri()));
 
 
     }
 
-    public void TakePicture(){
+    public void TakePicture() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
         if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
@@ -98,10 +107,38 @@ public class GalleryFragment extends Fragment implements NavigationItem {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
-            //sveSlike.add(imageBitmap);
+            uploadImage(imageBitmap);
             galleryGridView.invalidateViews();
         }
     }
+
+
+    public void uploadImage(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] data = baos.toByteArray();
+
+
+        StorageReference storageRef = FirebaseStorage.getInstance().getReference("235112/images");
+        StorageReference image = storageRef.child("/6.jpg");
+
+        UploadTask uploadTask = image.putBytes(data);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                Uri downloadUrl = taskSnapshot.getUploadSessionUri();
+
+            }
+        });
+
+    }
+
+
 
 
     @Override
