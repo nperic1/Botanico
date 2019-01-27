@@ -72,7 +72,6 @@ public class PlantDetailsFragment extends Fragment {
         liveData.observe((AppCompatActivity) getActivity(), new Observer<Plant>() {
             @Override
             public void onChanged(@Nullable Plant plant) {
-                //TODO bind
                 hum.setText(Float.toString(plant.getHumidity()) + " %");
                 lux.setText(Float.toString(plant.getLight()) + " K");
                 temp.setText(Float.toString(plant.getTemp()) + " °C");
