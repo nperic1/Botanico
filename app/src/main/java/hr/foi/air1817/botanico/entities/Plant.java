@@ -15,6 +15,8 @@ public class Plant {
     private float temp;
     private float humidity;
     private float light;
+    @Ignore
+    private int imageCounter;
 
     public Plant(int id, String name) {
         this.id = id;
@@ -24,6 +26,14 @@ public class Plant {
     @Ignore
     public Plant(){
 
+    }
+
+    public int getImageCounter() {
+        return imageCounter;
+    }
+
+    public void setImageCounter(int imageCounter) {
+        this.imageCounter = imageCounter;
     }
 
     public String getName() {

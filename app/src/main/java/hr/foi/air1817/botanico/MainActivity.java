@@ -2,6 +2,7 @@ package hr.foi.air1817.botanico;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,10 +13,25 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.ButterKnife;
+import hr.foi.air1817.botanico.entities.GalleryItem;
+import hr.foi.air1817.botanico.entities.Plant;
 import hr.foi.air1817.botanico.firebaseMessaging.BotanicoNotificationManager;
 import hr.foi.air1817.botanico.fragments.GalleryFragment;
 import hr.foi.air1817.botanico.fragments.HelpFragment;
@@ -30,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
     private Toolbar mToolbar;
     private ActionBarDrawerToggle mDrawerToggle;
     private android.app.FragmentManager mFm;
+    public ArrayList<Uri> uris = new ArrayList<Uri>();
+    public ArrayList<Integer> biljkaId= new ArrayList<Integer>();
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -57,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
 
         mFm = getFragmentManager();
         mFm.addOnBackStackChangedListener(this);
+        DohvatiSlike(PlantRoomDatabase.getPlantRoomDatabase(getApplicationContext()).plantDao().getAllPlants());
     }
 
     private void initializeLayout(){
@@ -96,6 +115,37 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void DohvatiSlike(List<Plant> l){
+
+        final List<Plant> lista=l;
+
+        for (Plant plants : l) {
+            biljkaId.add(((Integer) plants.getId()));
+        }
+
+        for (Integer id: biljkaId) {
+
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference(id.toString());
+
+
+
+            for (int i=1; i<15; i++){
+                StorageReference loadImage = FirebaseStorage.getInstance().getReference(  id+"/images/"+i+".jpg");
+
+                loadImage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        GalleryItem.addItem(uri);
+                        Log.d("OVO JE KKKK", String.valueOf(uri));
+                    }
+                });
+            }
+
+        }
+
+
     }
 
     @Override

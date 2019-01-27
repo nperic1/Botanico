@@ -1,8 +1,8 @@
 package hr.foi.air1817.botanico.adapters;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -15,23 +15,26 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.support.constraint.Constraints.TAG;
+
 public class GalleryGridAdapter extends BaseAdapter {
     private Context mContext;
-    public ArrayList<Bitmap> slike;
+    public ArrayList<Uri> images;
 
-    public GalleryGridAdapter(Context context, ArrayList<Bitmap> slikice){
-       slike = slikice;
+    public GalleryGridAdapter(Context context, ArrayList<Uri> imagesUri){
+        images = imagesUri;
         mContext = context;
+
     }
 
     @Override
     public int getCount() {
-        return slike.size();
+        return images.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return slike.indexOf(position);
+        return images.indexOf(position);
     }
 
     @Override
@@ -49,7 +52,8 @@ public class GalleryGridAdapter extends BaseAdapter {
         } else{
             imageView = (ImageView) convertView;
         }
-            imageView.setImageBitmap(slike.get(position));
-            return imageView;
+        Log.d("HHHHHHHH", String.valueOf(images.get(position)));
+        Picasso.with(mContext).load(String.valueOf(images.get(position))).into(imageView);
+        return imageView;
     }
 }
