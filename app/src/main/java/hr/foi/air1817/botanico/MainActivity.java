@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
 
         mFm = getFragmentManager();
         mFm.addOnBackStackChangedListener(this);
-        DohvatiSlike(PlantRoomDatabase.getPlantRoomDatabase(getApplicationContext()).plantDao().getAllPlants());
+        GalleryItem.DohvatiSlike(PlantRoomDatabase.getPlantRoomDatabase(getApplicationContext()).plantDao().getAllPlants(), getApplicationContext());
 
     }
 
@@ -118,30 +118,6 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
         return super.onOptionsItemSelected(item);
     }
 
-    public void DohvatiSlike(List<Plant> l){
-
-        for (Plant plants : l) {
-            biljkaId.add(((Integer) plants.getId()));
-        }
-
-        for (Integer id: biljkaId) {
-            brojac = brojac + (int) PlantRoomDatabase.getPlantRoomDatabase(getApplication().getApplicationContext()).plantDao().findPlantById(id).getImageCounter();
-
-            for (int i=1; i<=brojac; i++){
-                StorageReference loadImage = FirebaseStorage.getInstance().getReference(  id+"/images/"+i+".jpg");
-
-                loadImage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        GalleryItem.addItem(uri);
-                    }
-                });
-            }
-
-        }
-
-
-    }
 
     @Override
     public void onBackPressed() {

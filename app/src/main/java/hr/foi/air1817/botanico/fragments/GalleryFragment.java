@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
@@ -27,8 +28,10 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -48,6 +51,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hr.foi.air1817.botanico.AddPlantActivity;
+import hr.foi.air1817.botanico.MainActivity;
 import hr.foi.air1817.botanico.NavigationItem;
 import hr.foi.air1817.botanico.PlantRoomDatabase;
 import hr.foi.air1817.botanico.R;
@@ -118,13 +122,15 @@ public class GalleryFragment extends Fragment implements NavigationItem {
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] data = baos.toByteArray();
 
-
+        Plant plant = PlantRoomDatabase.getPlantRoomDatabase(getActivity().getApplicationContext()).plantDao().findPlantById(235112);
         StorageReference storageRef = FirebaseStorage.getInstance().getReference("235112/images");
         int broj = DohvatiBrojSlike() + 1;
+        plant.setImageCounter(broj);
+        PlantRoomDatabase.getPlantRoomDatabase(getActivity().getApplicationContext()).plantDao().update(plant);
         FirebaseDatabase.getInstance().getReference(  "/235112")
                 .child("imageCounter")
                 .setValue(broj);
-        StorageReference image = storageRef.child("/" + broj + ".jpg");
+        final StorageReference image = storageRef.child("/" + broj + ".jpg");
 
         UploadTask uploadTask = image.putBytes(data);
         uploadTask.addOnFailureListener(new OnFailureListener() {
@@ -134,10 +140,24 @@ public class GalleryFragment extends Fragment implements NavigationItem {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        GalleryItem.addItem(uri);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            getFragmentManager().beginTransaction().detach(getFragment()).commitNow();
+                            getFragmentManager().beginTransaction().attach(getFragment()).commitNow();
+                        } else {
+                            getFragmentManager().beginTransaction().detach(getFragment()).attach(getFragment()).commit();
+                        }
+                    }
+                });
 
-                Uri downloadUrl = taskSnapshot.getUploadSessionUri();
             }
         });
+
+
+
 
     }
 
