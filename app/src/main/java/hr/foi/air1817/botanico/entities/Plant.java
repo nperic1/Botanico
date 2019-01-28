@@ -15,7 +15,6 @@ public class Plant {
     private float temp;
     private float humidity;
     private float light;
-    @Ignore
     private int imageCounter;
 
     public Plant(int id, String name) {
@@ -80,6 +79,7 @@ public class Plant {
         this.humidity = plant.getHumidity();
         this.temp = plant.getTemp();
         this.light = plant.getLight();
+        this.imageCounter = plant.getImageCounter();
     }
 
     public boolean equals(Plant plant){
