@@ -1,5 +1,6 @@
 package hr.foi.air1817.botanico;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
     private android.app.FragmentManager mFm;
     public ArrayList<Uri> uris = new ArrayList<Uri>();
     public ArrayList<Integer> biljkaId= new ArrayList<Integer>();
-
+    public int brojac;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -67,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
         NavigationManager.getInstance().addItem(new PlantListFragment(), R.id.dynamic_group);
         NavigationManager.getInstance().addItem(new GalleryFragment(), R.id.dynamic_group);
         NavigationManager.getInstance().addItem(new NotificationsFragment(), R.id.dynamic_group);
-
         NavigationManager.getInstance().addItem(new InfoFragment(), R.id.static_group);
         NavigationManager.getInstance().addItem(new HelpFragment(), R.id.static_group);
 
@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
         mFm = getFragmentManager();
         mFm.addOnBackStackChangedListener(this);
         DohvatiSlike(PlantRoomDatabase.getPlantRoomDatabase(getApplicationContext()).plantDao().getAllPlants());
+
     }
 
     private void initializeLayout(){
@@ -119,26 +120,20 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
 
     public void DohvatiSlike(List<Plant> l){
 
-        final List<Plant> lista=l;
-
         for (Plant plants : l) {
             biljkaId.add(((Integer) plants.getId()));
         }
 
         for (Integer id: biljkaId) {
+            brojac = brojac + (int) PlantRoomDatabase.getPlantRoomDatabase(getApplication().getApplicationContext()).plantDao().findPlantById(id).getImageCounter();
 
-            DatabaseReference reference = FirebaseDatabase.getInstance().getReference(id.toString());
-
-
-
-            for (int i=1; i<15; i++){
+            for (int i=1; i<=brojac; i++){
                 StorageReference loadImage = FirebaseStorage.getInstance().getReference(  id+"/images/"+i+".jpg");
 
                 loadImage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
                         GalleryItem.addItem(uri);
-                        Log.d("OVO JE KKKK", String.valueOf(uri));
                     }
                 });
             }

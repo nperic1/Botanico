@@ -85,7 +85,9 @@ public class Plant {
     public boolean equals(Plant plant){
         if(this.light == plant.getLight() &&
            this.humidity == plant.getHumidity() &&
-           this.temp == plant.getTemp()){
+           this.temp == plant.getTemp() &&
+            this.imageCounter == plant.getImageCounter())
+        {
             return true;
         }else {
             return false;

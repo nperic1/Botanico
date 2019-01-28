@@ -76,7 +76,6 @@ public class PlantDetailsFragment extends Fragment {
                 hum.setText(Float.toString(plant.getHumidity()) + " %");
                 lux.setText(Float.toString(plant.getLight()) + " K");
                 temp.setText(Float.toString(plant.getTemp()) + " °C");
-                Log.d("LSHAKSJDALSK", String.valueOf(plant.getImageCounter()));
             }
         });
 

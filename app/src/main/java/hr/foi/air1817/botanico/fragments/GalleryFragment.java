@@ -120,7 +120,11 @@ public class GalleryFragment extends Fragment implements NavigationItem {
 
 
         StorageReference storageRef = FirebaseStorage.getInstance().getReference("235112/images");
-        StorageReference image = storageRef.child("/6.jpg");
+        int broj = DohvatiBrojSlike() + 1;
+        FirebaseDatabase.getInstance().getReference(  "/235112")
+                .child("imageCounter")
+                .setValue(broj);
+        StorageReference image = storageRef.child("/" + broj + ".jpg");
 
         UploadTask uploadTask = image.putBytes(data);
         uploadTask.addOnFailureListener(new OnFailureListener() {
@@ -132,13 +136,15 @@ public class GalleryFragment extends Fragment implements NavigationItem {
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                 Uri downloadUrl = taskSnapshot.getUploadSessionUri();
-
             }
         });
 
     }
 
-
+    public int DohvatiBrojSlike(){
+        int broj = PlantRoomDatabase.getPlantRoomDatabase(getActivity().getApplicationContext()).plantDao().findPlantById(235112).getImageCounter();
+        return broj;
+    }
 
 
     @Override
