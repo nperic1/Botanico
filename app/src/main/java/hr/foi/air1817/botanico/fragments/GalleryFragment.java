@@ -2,6 +2,7 @@ package hr.foi.air1817.botanico.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +21,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.GridView;
@@ -53,6 +55,7 @@ import java.util.List;
 import hr.foi.air1817.botanico.AddPlantActivity;
 import hr.foi.air1817.botanico.MainActivity;
 import hr.foi.air1817.botanico.NavigationItem;
+import hr.foi.air1817.botanico.NavigationManager;
 import hr.foi.air1817.botanico.PlantRoomDatabase;
 import hr.foi.air1817.botanico.R;
 
@@ -92,6 +95,20 @@ public class GalleryFragment extends Fragment implements NavigationItem {
 
         galleryGridView = (GridView) view.findViewById(R.id.gallery_gridview);
         galleryGridView.setAdapter(new GalleryGridAdapter(getActivity(), GalleryItem.getListaUri()));
+
+        galleryGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("KKKKKKKKKKKKKK", "desilo se nekaj");
+                // DialogDisplayImage(position);
+                Fragment galleryImageView = new GalleryImageView();
+                Bundle args = new Bundle();
+                args.putInt("position", position);
+                galleryImageView.setArguments(args);
+                NavigationManager.getInstance().switchFragment(galleryImageView, "");
+
+            }
+        });
 
 
     }

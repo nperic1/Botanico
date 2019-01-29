@@ -47,7 +47,7 @@ public class GalleryGridAdapter extends BaseAdapter {
         ImageView imageView;
         if (convertView == null) {
             imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(500, 500));
+            imageView.setLayoutParams(new GridView.LayoutParams(GridView.AUTO_FIT, 350));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         } else{
             imageView = (ImageView) convertView;
