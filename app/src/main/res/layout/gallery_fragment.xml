@@ -16,22 +16,29 @@
             android:layout_weight="10"
             android:columnWidth="110dp"
             android:numColumns="auto_fit"
-            android:verticalSpacing="10dp"
-            android:horizontalSpacing="10dp"
+            android:verticalSpacing="7dp"
+            android:horizontalSpacing="7dp"
+            android:layout_margin="7dp"
             android:stretchMode="columnWidth"
             android:gravity="center">
 
         </GridView>
 
 
-        <Button
+        <ImageButton
             android:id="@+id/new_picture_button"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1.5"
+            android:layout_height="wrap_content"
             android:text="Take photo"
-            android:paddingBottom="10dp"
-            android:layout_gravity="center"/>
+            android:background="@mipmap/ic_launch_camera"
+            android:layout_gravity="center"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="10dp"
+            >
+
+        </ImageButton>
 
 
     </LinearLayout>

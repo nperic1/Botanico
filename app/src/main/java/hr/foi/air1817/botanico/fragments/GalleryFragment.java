@@ -25,6 +25,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -84,7 +85,7 @@ public class GalleryFragment extends Fragment implements NavigationItem {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button captureImage = (Button) view.findViewById(R.id.new_picture_button);
+        ImageButton captureImage =  view.findViewById(R.id.new_picture_button);
         captureImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,8 +99,7 @@ public class GalleryFragment extends Fragment implements NavigationItem {
         galleryGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("KKKKKKKKKKKKKK", "desilo se nekaj");
-                // DialogDisplayImage(position);
+
                 Fragment galleryImageView = new GalleryImageView();
                 Bundle args = new Bundle();
                 args.putInt("position", position);

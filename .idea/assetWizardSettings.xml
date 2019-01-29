@@ -94,12 +94,27 @@
                             <entry key="launcherLegacy">
                               <value>
                                 <PersistentState>
+                                  <option name="children">
+                                    <map>
+                                      <entry key="image">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="trimmed" value="true" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
+                                    </map>
+                                  </option>
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="C:\Users\Korisnik\Desktop\settings1.png" />
-                                      <entry key="outputName" value="ic_garden_settings" />
+                                      <entry key="imageAsset" value="C:\Users\Korisnik\Desktop\camera-DarkGray2.png" />
+                                      <entry key="outputName" value="ic_launch_camera" />
                                     </map>
                                   </option>
                                 </PersistentState>

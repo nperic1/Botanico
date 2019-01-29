@@ -1,6 +1,7 @@
 package hr.foi.air1817.botanico.fragments;
 
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -30,14 +31,12 @@ public class GalleryImageView extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.gallery_image_view_fragment, container, false);
 
-
-
         return v;
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        view.setBackgroundColor(Color.DKGRAY);
         imageView = (ImageView) view.findViewById(R.id.gallery_full_size_image);
 
         final Bundle data = getArguments();
