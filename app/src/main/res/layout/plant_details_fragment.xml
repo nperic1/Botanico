@@ -124,31 +124,12 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:orientation="horizontal"
-                        android:paddingTop="15dp"
-                        android:id="@+id/garden_settings_icon"
-                        android:clickable="true">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:id="@+id/actuatorContainer"
+                        android:clickable="false">
 
-                        <ImageButton
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="fill_parent"
-                            android:scaleType="fitStart"
-                            android:layout_marginLeft="40dp"
-                            android:src="@mipmap/ic_garden_settings"
-                            android:background="@null"
-                            android:clickable="false"/>
-                        <TextView
-                            android:id="@+id/garden_settings_text"
-                            android:layout_width="0dp"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="3"
-                            android:text="Garden settings"
-                            android:paddingLeft="30dp"
-                            android:gravity="center_vertical"
-                            style="@style/GardenViewDataText"
-                            />
+
                     </LinearLayout>
 
                 </LinearLayout>

@@ -1,1 +1,1 @@
-include ':app', ':watering'
+include ':app', ':watering', ':core'

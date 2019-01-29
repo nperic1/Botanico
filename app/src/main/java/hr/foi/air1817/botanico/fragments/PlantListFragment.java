@@ -17,11 +17,10 @@ import android.view.ViewGroup;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import hr.foi.air1817.botanico.NavigationItem;
+import com.example.core.NavigationItem;
 import hr.foi.air1817.botanico.PlantRoomDatabase;
 import hr.foi.air1817.botanico.R;
 import hr.foi.air1817.botanico.adapters.PlantsRecyclerViewAdapter;
-import hr.foi.air1817.botanico.helpers.MockDataLoader;
 
 public class PlantListFragment extends android.app.Fragment implements NavigationItem {
 

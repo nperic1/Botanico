@@ -28,8 +28,6 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
-
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -54,9 +52,10 @@ import java.util.List;
 
 import hr.foi.air1817.botanico.AddPlantActivity;
 import hr.foi.air1817.botanico.MainActivity;
-import hr.foi.air1817.botanico.NavigationItem;
 import hr.foi.air1817.botanico.NavigationManager;
 import hr.foi.air1817.botanico.PlantRoomDatabase;
+import com.example.core.NavigationItem;
+
 import hr.foi.air1817.botanico.R;
 
 import hr.foi.air1817.botanico.adapters.GalleryGridAdapter;

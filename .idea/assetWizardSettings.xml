@@ -98,8 +98,8 @@
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="D:\FOI DS\Analiza i razvoj programa\Botanico materijali\botanico_navigation_header.png" />
-                                      <entry key="outputName" value="navigation_header" />
+                                      <entry key="imageAsset" value="C:\Users\Korisnik\Desktop\settings1.png" />
+                                      <entry key="outputName" value="ic_garden_settings" />
                                     </map>
                                   </option>
                                 </PersistentState>

@@ -57,6 +57,8 @@ public class PlantDetailsFragment extends Fragment {
         super.onStart();
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.nav_plant_details);
 
+
+
         final ImageView plantImage = getView().findViewById(R.id.plantImage);
         final TextView temp = getView().findViewById(R.id.temperature_data);
         final TextView hum = getView().findViewById(R.id.humidity_data);
