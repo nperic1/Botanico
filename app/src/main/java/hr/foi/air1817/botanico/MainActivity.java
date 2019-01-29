@@ -1,7 +1,9 @@
 package hr.foi.air1817.botanico;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,10 +14,25 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.ButterKnife;
+import hr.foi.air1817.botanico.entities.GalleryItem;
+import hr.foi.air1817.botanico.entities.Plant;
 import hr.foi.air1817.botanico.firebaseMessaging.BotanicoNotificationManager;
 import hr.foi.air1817.botanico.fragments.GalleryFragment;
 import hr.foi.air1817.botanico.fragments.HelpFragment;
@@ -30,7 +47,9 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
     private Toolbar mToolbar;
     private ActionBarDrawerToggle mDrawerToggle;
     private android.app.FragmentManager mFm;
-
+    public ArrayList<Uri> uris = new ArrayList<Uri>();
+    public ArrayList<Integer> biljkaId= new ArrayList<Integer>();
+    public int brojac;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -49,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
         NavigationManager.getInstance().addItem(new PlantListFragment(), R.id.dynamic_group);
         NavigationManager.getInstance().addItem(new GalleryFragment(), R.id.dynamic_group);
         NavigationManager.getInstance().addItem(new NotificationsFragment(), R.id.dynamic_group);
-
         NavigationManager.getInstance().addItem(new InfoFragment(), R.id.static_group);
         NavigationManager.getInstance().addItem(new HelpFragment(), R.id.static_group);
 
@@ -57,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
 
         mFm = getFragmentManager();
         mFm.addOnBackStackChangedListener(this);
+        GalleryItem.DohvatiSlike(PlantRoomDatabase.getPlantRoomDatabase(getApplicationContext()).plantDao().getAllPlants(), getApplicationContext());
+
     }
 
     private void initializeLayout(){
@@ -97,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     public void onBackPressed() {

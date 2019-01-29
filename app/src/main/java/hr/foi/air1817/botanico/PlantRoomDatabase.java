@@ -13,7 +13,7 @@ import hr.foi.air1817.botanico.entities.Plant;
 import hr.foi.air1817.botanico.entities.PlantHistory;
 import hr.foi.air1817.botanico.helpers.Converters;
 
-@Database(entities = {Plant.class, PlantHistory.class}, version = 3, exportSchema = false)
+@Database(entities = {Plant.class, PlantHistory.class}, version = 4, exportSchema = false)
 @TypeConverters({Converters.class})
 public abstract class PlantRoomDatabase extends RoomDatabase {
     private static PlantRoomDatabase INSTANCE;
@@ -25,7 +25,7 @@ public abstract class PlantRoomDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             INSTANCE =
                     Room.databaseBuilder(context.getApplicationContext(), PlantRoomDatabase.class, "plant-database")
-                            .addMigrations(FROM_1_TO_2, FROM_2_TO_3)
+                            .addMigrations(FROM_1_TO_2, FROM_2_TO_3, FROM_3_TO_4)
                             .allowMainThreadQueries()
                             .build();
         }
@@ -47,6 +47,15 @@ public abstract class PlantRoomDatabase extends RoomDatabase {
         public void migrate(final SupportSQLiteDatabase database)
         {
             database.execSQL("CREATE INDEX index_plantId ON plant_history_table (plantId)");
+        }
+    };
+
+    static final Migration FROM_3_TO_4 = new Migration(3, 4)
+    {
+        @Override
+        public void migrate(final SupportSQLiteDatabase database)
+        {
+            database.execSQL("ALTER TABLE plant_table ADD imageCounter INTEGER");
         }
     };
 
