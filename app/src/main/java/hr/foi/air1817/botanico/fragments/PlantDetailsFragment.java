@@ -2,14 +2,10 @@ package hr.foi.air1817.botanico.fragments;
 
 import android.annotation.TargetApi;
 import android.app.Fragment;
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -34,7 +30,7 @@ import java.util.ArrayList;
 
 import hr.foi.air1817.botanico.ActuatorManager;
 import hr.foi.air1817.botanico.NavigationManager;
-import hr.foi.air1817.botanico.PlantViewModel;
+import hr.foi.air1817.botanico.PlantRepository;
 import hr.foi.air1817.botanico.R;
 import hr.foi.air1817.botanico.entities.Plant;
 import hr.foi.air1817.botanico.helpers.CurrentPlant;
@@ -42,6 +38,7 @@ import hr.foi.air1817.botanico.helpers.CurrentPlant;
 public class PlantDetailsFragment extends Fragment {
     final ArrayList<String> dateList = new ArrayList<>();
     final ArrayList<String> moistureList = new ArrayList<>();
+    PlantRepository repository;
     int id;
 
     @Override
@@ -57,31 +54,38 @@ public class PlantDetailsFragment extends Fragment {
         super.onStart();
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.nav_plant_details);
 
-
-
         final ImageView plantImage = getView().findViewById(R.id.plantImage);
         final TextView temp = getView().findViewById(R.id.temperature_data);
         final TextView hum = getView().findViewById(R.id.humidity_data);
         final TextView lux = getView().findViewById(R.id.light_data);
 
+        repository = new PlantRepository(getActivity().getApplication());
+
         final Bundle data = getArguments();
         id = (int) data.get("id");
         CurrentPlant.path = Integer.toString(id);
         getDataForBundle();
-        final PlantViewModel viewModel = ViewModelProviders.of((AppCompatActivity)getActivity()).get(PlantViewModel.class);
-        LiveData<Plant> liveData = viewModel.getPlantLiveData();
 
         getActuators();
 
-        liveData.observe((AppCompatActivity) getActivity(), new Observer<Plant>() {
+        final DatabaseReference reference  = FirebaseDatabase.getInstance().getReference(String.valueOf(id));
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChanged(@Nullable Plant plant) {
-
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Plant plant = dataSnapshot.getValue(Plant.class);
+                syncData(repository.findPlantById(Integer.parseInt(CurrentPlant.path)), plant);
                 hum.setText(Float.toString(plant.getHumidity()) + " %");
                 lux.setText(Float.toString(plant.getLight()) + " K");
                 temp.setText(Float.toString(plant.getTemp()) + " °C");
             }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
         });
+
+
 
         StorageReference loadImage = FirebaseStorage.getInstance().getReference( id + "/avatar_image/avatar.jpg");
 
@@ -130,5 +134,16 @@ public class PlantDetailsFragment extends Fragment {
     private void getActuators(){
         ActuatorManager am = ActuatorManager.getInstance();
         am.addItem(new GardenSettings(), id, getActivity());
+    }
+
+    public void syncData(Plant currentPlant, Plant firebasePlantData) {
+        if(!currentPlant.equals(firebasePlantData)){
+            currentPlant.update(firebasePlantData);
+            update(currentPlant);
+        }
+    }
+
+    public void update(Plant plant){
+        repository.update(plant);
     }
 }
