@@ -22,10 +22,6 @@ public class GalleryItem {
         return listUri;
     }
 
-    public static void setListaUri(ArrayList<Uri> listaUri) {
-        GalleryItem.listUri = listaUri;
-    }
-
 
     public static void DohvatiSlike(List<Plant> l, Context context){
         int brojac = 0;
@@ -33,22 +29,35 @@ public class GalleryItem {
         GalleryItem.listUri.clear();
 
         for (Plant plants : l) {
-            biljkaId.add(((Integer) plants.getId()));
+            biljkaId.add((plants.getId()));
         }
 
         for (Integer id: biljkaId) {
-            brojac = brojac + (int) PlantRoomDatabase.getPlantRoomDatabase(context).plantDao().findPlantById(id).getImageCounter();
+            brojac = brojac + PlantRoomDatabase.getPlantRoomDatabase(context).plantDao().findPlantById(id).getImageCounter();
+            if(brojac == 0){
+                for (int i=1; i<=10; i++){
+                    StorageReference loadImage = FirebaseStorage.getInstance().getReference(  id+"/images/"+i+".jpg");
 
-            for (int i=1; i<=brojac; i++){
-                StorageReference loadImage = FirebaseStorage.getInstance().getReference(  id+"/images/"+i+".jpg");
+                    loadImage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            GalleryItem.addItem(uri);
+                        }
+                    });
+                }
+            }else {
+                for (int i=1; i<=brojac; i++){
+                    StorageReference loadImage = FirebaseStorage.getInstance().getReference(  id+"/images/"+i+".jpg");
 
-                loadImage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        GalleryItem.addItem(uri);
-                    }
-                });
+                    loadImage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            GalleryItem.addItem(uri);
+                        }
+                    });
+                }
             }
+
 
         }
 

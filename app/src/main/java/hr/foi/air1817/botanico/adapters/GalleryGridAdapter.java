@@ -2,7 +2,6 @@ package hr.foi.air1817.botanico.adapters;
 
 import android.content.Context;
 import android.net.Uri;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -10,12 +9,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
-
-import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
-
-import static android.support.constraint.Constraints.TAG;
 
 public class GalleryGridAdapter extends BaseAdapter {
     private Context mContext;
@@ -52,7 +46,6 @@ public class GalleryGridAdapter extends BaseAdapter {
         } else{
             imageView = (ImageView) convertView;
         }
-        Log.d("HHHHHHHH", String.valueOf(images.get(position)));
         Picasso.with(mContext).load(String.valueOf(images.get(position))).into(imageView);
         return imageView;
     }
