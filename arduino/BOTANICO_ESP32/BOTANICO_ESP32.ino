@@ -10,14 +10,15 @@
 #include "DHT.h"
 
 #define DHTTYPE DHT11 
-#define DURATION 10000
+#define DURATION 5000
 #define UPDATE_TIME 10000
 #define DEVICE_ID "235112/"
 #define FIREBASE_HOST "botanico-50074.firebaseio.com"
 #define FIREBASE_AUTH "XxxXIEZstrWMWCNNnvR7RUGyizc8cjtBk8E56g4V"
 #define LIGHT_SENSOR 35
-#define HUMIDITY_SENSOR 34
-#define DHT_SENSOR 15
+#define HUMIDITY_SENSOR 32
+#define DHT_SENSOR 34
+#define WATER_PUMP 33
 
 DHT dht(DHT_SENSOR, DHTTYPE);
 
@@ -33,6 +34,7 @@ void setup() {
   Serial.begin(9600);
   pinMode(LIGHT_SENSOR, INPUT);
   pinMode(HUMIDITY_SENSOR, INPUT);
+  pinMode(WATER_PUMP, OUTPUT);
   dht.begin();
 
   WiFiManager wifiManager;
@@ -64,8 +66,6 @@ void setup() {
 
   initializeClock();
   initializeVariables();
-
-  pinMode(2, OUTPUT);
 }
 
 void loop() {
@@ -89,6 +89,7 @@ void automaticWatering(){
   if(automaticWateringStatus && humidity < minHumidity){
     Firebase.setBool((String) DEVICE_ID + "automatic_watering/notification", true);
     watering();
+    Firebase.setBool((String) DEVICE_ID + "automatic_watering/status", false);
   }
 }
 
@@ -100,27 +101,29 @@ void scheduledWatering(){
 }
 
 void updateTemp(){
+  Serial.println( dht.readTemperature());
   if(!isnan(dht.readTemperature())){
     temp = dht.readTemperature();
+
     Firebase.setInt((String) DEVICE_ID + "/temp", temp);
   }
 }
 
 void updateHumidity(){ 
-  humidity = analogRead(HUMIDITY_SENSOR);
+  humidity = map(analogRead(HUMIDITY_SENSOR), 4095, 1400, 0, 100);
   Firebase.setInt((String) DEVICE_ID + "/humidity", humidity);
 }
 
 void updateLight(){
-  light = analogRead(LIGHT_SENSOR);
+  light = map(analogRead(LIGHT_SENSOR), 3600, 2000, 100 , 0);
   Firebase.setInt((String) DEVICE_ID + "/light", light);
 }
 
 void watering(){
-  digitalWrite(2, HIGH);
+  digitalWrite(WATER_PUMP, HIGH);
   Serial.println("Zaljevam!");
   delay(DURATION);
-  digitalWrite(2, LOW); 
+  digitalWrite(WATER_PUMP, LOW); 
   Serial.println("Gotovo zaljevanje!");
 }
 
