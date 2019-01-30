@@ -1,6 +1,5 @@
 package hr.foi.air1817.botanico;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
@@ -18,21 +17,10 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.ButterKnife;
 import hr.foi.air1817.botanico.entities.GalleryItem;
-import hr.foi.air1817.botanico.entities.Plant;
 import hr.foi.air1817.botanico.firebaseMessaging.BotanicoNotificationManager;
 import hr.foi.air1817.botanico.fragments.GalleryFragment;
 import hr.foi.air1817.botanico.fragments.HelpFragment;
@@ -61,15 +49,27 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
 
         BotanicoNotificationManager.getInstance(getApplicationContext()).createChannel();
 
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         initializeLayout();
 
         initializeNavigationManager();
 
-        NavigationManager.getInstance().addItem(new PlantListFragment(), R.id.dynamic_group);
-        NavigationManager.getInstance().addItem(new GalleryFragment(), R.id.dynamic_group);
-        NavigationManager.getInstance().addItem(new NotificationsFragment(), R.id.dynamic_group);
-        NavigationManager.getInstance().addItem(new InfoFragment(), R.id.static_group);
-        NavigationManager.getInstance().addItem(new HelpFragment(), R.id.static_group);
+        if(NavigationManager.getInstance().navigationItems.size() == 0){
+            NavigationManager.getInstance().addItem(new PlantListFragment(), R.id.dynamic_group);
+            NavigationManager.getInstance().addItem(new GalleryFragment(), R.id.dynamic_group);
+            NavigationManager.getInstance().addItem(new NotificationsFragment(), R.id.dynamic_group);
+            NavigationManager.getInstance().addItem(new InfoFragment(), R.id.static_group);
+            NavigationManager.getInstance().addItem(new HelpFragment(), R.id.static_group);
+        }
+
+
+        Log.d("test", String.valueOf(NavigationManager.getInstance().navigationItems.size()));
+        Log.d("test", String.valueOf(NavigationManager.getInstance().navigationItems.get(0).getItemName(getApplicationContext())));
 
         startMainModule();
 

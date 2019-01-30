@@ -1,25 +1,17 @@
 package hr.foi.air1817.botanico;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.arch.lifecycle.ComputableLiveData;
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -29,7 +21,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -38,7 +29,6 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.UUID;
 
 import hr.foi.air1817.botanico.entities.Plant;
 
@@ -136,12 +126,9 @@ public class AddPlantActivity extends AppCompatActivity {
                         PlantRoomDatabase db = PlantRoomDatabase.getPlantRoomDatabase(getApplicationContext());
                         Plant plant = new Plant(Integer.parseInt( deviceId.getEditText().getText().toString()), plantName.getEditText().getText().toString());
                         db.plantDao().insert(plant);
+                        onBackPressed();
+                    }
 
-                        openMainActivity();
-                    }
-                    else  if(result && checkIdExistenceDatabase()){
-                        //TODO povuć podatke ako id postoji
-                    }
                     else {
                         showDialog(R.string.dialog_title_error, R.string.dialog_msg_invalid);
                     }
@@ -152,10 +139,6 @@ public class AddPlantActivity extends AppCompatActivity {
         }
     }
 
-    private void openMainActivity(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

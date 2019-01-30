@@ -33,7 +33,7 @@ import hr.foi.air1817.botanico.NavigationManager;
 import hr.foi.air1817.botanico.PlantRepository;
 import hr.foi.air1817.botanico.R;
 import hr.foi.air1817.botanico.entities.Plant;
-import hr.foi.air1817.botanico.helpers.CurrentPlant;
+
 
 public class PlantDetailsFragment extends Fragment {
     final ArrayList<String> dateList = new ArrayList<>();
@@ -63,7 +63,6 @@ public class PlantDetailsFragment extends Fragment {
 
         final Bundle data = getArguments();
         id = (int) data.get("id");
-        CurrentPlant.path = Integer.toString(id);
         getDataForBundle();
 
         getActuators();
@@ -73,7 +72,7 @@ public class PlantDetailsFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Plant plant = dataSnapshot.getValue(Plant.class);
-                syncData(repository.findPlantById(Integer.parseInt(CurrentPlant.path)), plant);
+                syncData(repository.findPlantById(id), plant);
                 hum.setText(Float.toString(plant.getHumidity()) + " %");
                 lux.setText(Float.toString(plant.getLight()) + " K");
                 temp.setText(Float.toString(plant.getTemp()) + " °C");
