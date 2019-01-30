@@ -1,0 +1,370 @@
+
+/hr.foi.air1817.botanico.MainActivity#onStart()V
+__unknown_file ("3*Þ7
+2`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java? ?(©
+¦
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java? ?(+/
+%6)hr.foi.air1817.botanico.NavigationManager"bhr.foi.air1817.botanico.NavigationManager#getInstance()Lhr/foi/air1817/botanico/NavigationManager;*-"+
+)hr.foi.air1817.botanico.NavigationManagerÕÒ
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java?8 ?(I9
+%73hr.foi.air1817.botanico.fragments.PlantListFragment"3hr.foi.air1817.botanico.fragments.PlantListFragmentç
+ä
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java?4 ?(K
+%8"=hr.foi.air1817.botanico.fragments.PlantListFragment#<init>()V*;
+9
+%73hr.foi.air1817.botanico.fragments.PlantListFragment—
+”
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java?M ?(Q"
+%9hr.foi.air1817.botanico.R$id"__id*
+""~
+|
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java?M ?(_
+
+%10int"__id*
+""õò
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java? ?(`
+%11void"Vhr.foi.air1817.botanico.NavigationManager#addItem(Lcom/example/core/NavigationItem;I)V*1
+/
+%6)hr.foi.air1817.botanico.NavigationManager*;
+9
+%73hr.foi.air1817.botanico.fragments.PlantListFragment*
+
+
+%10int2+addItem(Lcom/example/core/NavigationItem;I)ª
+§
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java@ @(+0
+%12)hr.foi.air1817.botanico.NavigationManager"bhr.foi.air1817.botanico.NavigationManager#getInstance()Lhr/foi/air1817/botanico/NavigationManager;*-"+
+)hr.foi.air1817.botanico.NavigationManagerÒÏ
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java@8 @(G8
+%131hr.foi.air1817.botanico.fragments.GalleryFragment"1hr.foi.air1817.botanico.fragments.GalleryFragmentå
+â
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java@4 @(I
+%14";hr.foi.air1817.botanico.fragments.GalleryFragment#<init>()V*:
+8
+%131hr.foi.air1817.botanico.fragments.GalleryFragment˜
+•
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java@K @(O#
+%15hr.foi.air1817.botanico.R$id"__id*
+""~
+|
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java@K @(]
+
+%16int"__id*
+""õò
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java@ @(^
+%17void"Vhr.foi.air1817.botanico.NavigationManager#addItem(Lcom/example/core/NavigationItem;I)V*2
+0
+%12)hr.foi.air1817.botanico.NavigationManager*:
+8
+%131hr.foi.air1817.botanico.fragments.GalleryFragment*
+
+
+%16int2+addItem(Lcom/example/core/NavigationItem;I)ª
+§
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaA A(+0
+%18)hr.foi.air1817.botanico.NavigationManager"bhr.foi.air1817.botanico.NavigationManager#getInstance()Lhr/foi/air1817/botanico/NavigationManager;*-"+
+)hr.foi.air1817.botanico.NavigationManagerÞÛ
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaA8 A(M>
+%197hr.foi.air1817.botanico.fragments.NotificationsFragment"7hr.foi.air1817.botanico.fragments.NotificationsFragmentñ
+î
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaA4 A(O
+%20"Ahr.foi.air1817.botanico.fragments.NotificationsFragment#<init>()V*@
+>
+%197hr.foi.air1817.botanico.fragments.NotificationsFragment˜
+•
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaAQ A(U#
+%21hr.foi.air1817.botanico.R$id"__id*
+""~
+|
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaAQ A(c
+
+%22int"__id*
+""ûø
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaA A(d
+%23void"Vhr.foi.air1817.botanico.NavigationManager#addItem(Lcom/example/core/NavigationItem;I)V*2
+0
+%18)hr.foi.air1817.botanico.NavigationManager*@
+>
+%197hr.foi.air1817.botanico.fragments.NotificationsFragment*
+
+
+%22int2+addItem(Lcom/example/core/NavigationItem;I)ª
+§
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaB B(+0
+%24)hr.foi.air1817.botanico.NavigationManager"bhr.foi.air1817.botanico.NavigationManager#getInstance()Lhr/foi/air1817/botanico/NavigationManager;*-"+
+)hr.foi.air1817.botanico.NavigationManagerÌÉ
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaB8 B(D5
+%25.hr.foi.air1817.botanico.fragments.InfoFragment".hr.foi.air1817.botanico.fragments.InfoFragmentß
+Ü
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaB4 B(F
+%26"8hr.foi.air1817.botanico.fragments.InfoFragment#<init>()V*7
+5
+%25.hr.foi.air1817.botanico.fragments.InfoFragment˜
+•
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaBH B(L#
+%27hr.foi.air1817.botanico.R$id"__id*
+""~
+|
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaBH B(Y
+
+%28int"__id*
+""òï
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaB B(Z
+%29void"Vhr.foi.air1817.botanico.NavigationManager#addItem(Lcom/example/core/NavigationItem;I)V*2
+0
+%24)hr.foi.air1817.botanico.NavigationManager*7
+5
+%25.hr.foi.air1817.botanico.fragments.InfoFragment*
+
+
+%28int2+addItem(Lcom/example/core/NavigationItem;I)ª
+§
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaC C(+0
+%30)hr.foi.air1817.botanico.NavigationManager"bhr.foi.air1817.botanico.NavigationManager#getInstance()Lhr/foi/air1817/botanico/NavigationManager;*-"+
+)hr.foi.air1817.botanico.NavigationManagerÌÉ
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaC8 C(D5
+%31.hr.foi.air1817.botanico.fragments.HelpFragment".hr.foi.air1817.botanico.fragments.HelpFragmentß
+Ü
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaC4 C(F
+%32"8hr.foi.air1817.botanico.fragments.HelpFragment#<init>()V*7
+5
+%31.hr.foi.air1817.botanico.fragments.HelpFragment˜
+•
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaCH C(L#
+%33hr.foi.air1817.botanico.R$id"__id*
+""~
+|
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaCH C(Y
+
+%34int"__id*
+""òï
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaC C(Z
+%35void"Vhr.foi.air1817.botanico.NavigationManager#addItem(Lcom/example/core/NavigationItem;I)V*2
+0
+%30)hr.foi.air1817.botanico.NavigationManager*7
+5
+%31.hr.foi.air1817.botanico.fragments.HelpFragment*
+
+
+%34int2+addItem(Lcom/example/core/NavigationItem;I)*
+1*‹
+3`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java9 9(®
+«
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java9 9(
+
+%0void"3android.support.v7.app.AppCompatActivity#onStart()V*
+""Õ
+Ò
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java: :(
+
+%1void"8hr.foi.air1817.botanico.MainActivity#initializeLayout()V*(&
+$hr.foi.air1817.botanico.MainActivityà
+Ý
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java< <(%
+
+%2void"Chr.foi.air1817.botanico.MainActivity#initializeNavigationManager()V*(&
+$hr.foi.air1817.botanico.MainActivity©
+¦
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java> >(*/
+%3)hr.foi.air1817.botanico.NavigationManager"bhr.foi.air1817.botanico.NavigationManager#getInstance()Lhr/foi/air1817/botanico/NavigationManager;*-"+
+)hr.foi.air1817.botanico.NavigationManagerÎ
+Ë
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java> >(:
+%4java.util.ArrayList"__id*F*D
+/
+%3)hr.foi.air1817.botanico.NavigationManager"
+navigationItems²¯
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.java> >(A	
+%5int"java.util.ArrayList#size()I*
+
+%4java.util.ArrayList2size()*
+2
+1*~
+0 "w
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaP P(
+implicit return*´0
+1`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaG G(ª
+§
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaG% G(D0
+%36)hr.foi.air1817.botanico.NavigationManager"bhr.foi.air1817.botanico.NavigationManager#getInstance()Lhr/foi/air1817/botanico/NavigationManager;*-"+
+)hr.foi.air1817.botanico.NavigationManagerÐ
+Í
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaG% G(T
+%37java.util.ArrayList"__id*G*E
+0
+%36)hr.foi.air1817.botanico.NavigationManager"
+navigationItems´±
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaG% G([
+
+%38int"java.util.ArrayList#size()I*
+
+%37java.util.ArrayList2size()Ñ
+Î
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaG G(\
+%39java.lang.String"-java.lang.String#valueOf(I)Ljava/lang/String;*"
+java.lang.String*
+
+
+%38intç
+ä
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaG G(]
+
+%40int"9android.util.Log#d(Ljava/lang/String;Ljava/lang/String;)I*"
+android.util.Log*
+test*
+
+%39java.lang.Stringª
+§
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaH% H(D0
+%41)hr.foi.air1817.botanico.NavigationManager"bhr.foi.air1817.botanico.NavigationManager#getInstance()Lhr/foi/air1817/botanico/NavigationManager;*-"+
+)hr.foi.air1817.botanico.NavigationManagerÐ
+Í
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaH% H(T
+%42java.util.ArrayList"__id*G*E
+0
+%41)hr.foi.air1817.botanico.NavigationManager"
+navigationItemsåâ
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaH% H([&
+%43com.example.core.NavigationItem",java.util.ArrayList#get(I)Ljava/lang/Object;*
+
+%42java.util.ArrayList*2 2get(I)™–
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaHh H(
+%44android.content.Context"Oandroid.content.ContextWrapper#getApplicationContext()Landroid/content/Context;*(&
+$hr.foi.air1817.botanico.MainActivity2getApplicationContext()ÍÊ
+a
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaH% H(€
+%45java.lang.String"Xcom.example.core.NavigationItem#getItemName(Landroid/content/Context;)Ljava/lang/String;*(
+&
+%43com.example.core.NavigationItem* 
+
+%44android.content.Context2&getItemName(Landroid/content/Context;)ð
+í
+a
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaH H(
+%46java.lang.String">java.lang.String#valueOf(Ljava/lang/Object;)Ljava/lang/String;*"
+java.lang.String*
+
+%45java.lang.Stringè
+å
+a
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaH H(‚
+
+%47int"9android.util.Log#d(Ljava/lang/String;Ljava/lang/String;)I*"
+android.util.Log*
+test*
+
+%46java.lang.StringÕ
+Ò
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaJ J(
+%48void"7hr.foi.air1817.botanico.MainActivity#startMainModule()V*(&
+$hr.foi.air1817.botanico.MainActivity‘Ž
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaL L(""
+%49android.app.FragmentManager"Fandroid.app.Activity#getFragmentManager()Landroid/app/FragmentManager;*(&
+$hr.foi.air1817.botanico.MainActivity2getFragmentManager()Â
+¿
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaL L("/&
+$hr.foi.air1817.botanico.MainActivity"
+mFm"__id*$
+"
+%49android.app.FragmentManagerÂ
+¿
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaM M("
+%50android.app.FragmentManager"__id*1*/&
+$hr.foi.air1817.botanico.MainActivity"
+mFm‘Ž
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaM M(/
+%51void"tandroid.app.FragmentManager#addOnBackStackChangedListener(Landroid/app/FragmentManager$OnBackStackChangedListener;)V*$
+"
+%50android.app.FragmentManager*(&
+$hr.foi.air1817.botanico.MainActivity2WaddOnBackStackChangedListener(Landroid/app/FragmentManager$OnBackStackChangedListener;)™–
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaNH N(_
+%52android.content.Context"Oandroid.content.ContextWrapper#getApplicationContext()Landroid/content/Context;*(&
+$hr.foi.air1817.botanico.MainActivity2getApplicationContext()ï
+ì
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaN! N(`0
+%53)hr.foi.air1817.botanico.PlantRoomDatabase"„hr.foi.air1817.botanico.PlantRoomDatabase#getPlantRoomDatabase(Landroid/content/Context;)Lhr/foi/air1817/botanico/PlantRoomDatabase;*-"+
+)hr.foi.air1817.botanico.PlantRoomDatabase* 
+
+%52android.content.Context¦£
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaN! N(k'
+%54 hr.foi.air1817.botanico.PlantDao"Vhr.foi.air1817.botanico.PlantRoomDatabase#plantDao()Lhr/foi/air1817/botanico/PlantDao;*2
+0
+%53)hr.foi.air1817.botanico.PlantRoomDatabase2
+plantDao()øõ
+`
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaN! N(z
+%55java.util.List"?hr.foi.air1817.botanico.PlantDao#getAllPlants()Ljava/util/List;*)
+'
+%54 hr.foi.air1817.botanico.PlantDao2getAllPlants()š—
+a
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaN| N(“
+%56android.content.Context"Oandroid.content.ContextWrapper#getApplicationContext()Landroid/content/Context;*(&
+$hr.foi.air1817.botanico.MainActivity2getApplicationContext()Ç
+Ä
+a
+VC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\MainActivity.javaN N(”
+%57void"ehr.foi.air1817.botanico.entities.GalleryItem#DohvatiSlike(Ljava/util/List;Landroid/content/Context;)V*0".
+,hr.foi.air1817.botanico.entities.GalleryItem*
+
+%55java.util.List* 
+
+%56android.content.Context*
+0B(&
+$hr.foi.air1817.botanico.MainActivity

@@ -1,0 +1,22 @@
+
+whr.foi.air1817.botanico.helpers.MockDataLoader#getDemoData(Lhr/foi/air1817/botanico/PlantRoomDatabase;)Ljava/util/List;
+__unknown_file ("1*ª
+1j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\helpers\MockDataLoader.java (®«
+j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\helpers\MockDataLoader.java (&
+%0 hr.foi.air1817.botanico.PlantDao"Vhr.foi.air1817.botanico.PlantRoomDatabase#plantDao()Lhr/foi/air1817/botanico/PlantDao;*1
+/
+db)hr.foi.air1817.botanico.PlantRoomDatabase2
+plantDao()€ý
+j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\helpers\MockDataLoader.java (+
+%1java.util.List"?hr.foi.air1817.botanico.PlantDao#getAllPlants()Ljava/util/List;*(
+&
+%0 hr.foi.air1817.botanico.PlantDao2getAllPlants()"„
+j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\helpers\MockDataLoader.java (,
+
+%1java.util.List:/
+db)hr.foi.air1817.botanico.PlantRoomDatabaseB2"0
+.hr.foi.air1817.botanico.helpers.MockDataLoader

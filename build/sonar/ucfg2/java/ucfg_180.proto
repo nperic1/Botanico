@@ -1,0 +1,240 @@
+
+ùhr.foi.air1817.botanico.fragments.PlantListFragment#onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+__unknown_file ("paramAnnotations*¯
+paramAnnotationsp
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java" "(Çﬁ
+€
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java   (-
+%18"
+__annotate**(
+&android.support.annotation.RequiresApi*)
+'
+inflaterandroid.view.LayoutInflater 
+«
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java! !(
+%19"
+__annotate*
+java.lang.Override*)
+'
+inflaterandroid.view.LayoutInflater⁄
+◊
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java" "(%
+%20"
+__annotate*&$
+"android.support.annotation.NonNull*)
+'
+inflaterandroid.view.LayoutInflater∆
+√
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java"5 "(='
+inflaterandroid.view.LayoutInflater"__annotation*
+
+%18*
+
+%19*
+
+%20⁄
+◊
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java   (-
+%21"
+__annotate**(
+&android.support.annotation.RequiresApi*%
+#
+	containerandroid.view.ViewGroup∆
+√
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java! !(
+%22"
+__annotate*
+java.lang.Override*%
+#
+	containerandroid.view.ViewGroup◊
+‘
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java"? "(H
+%23"
+__annotate*'%
+#android.support.annotation.Nullable*%
+#
+	containerandroid.view.ViewGroup¬
+ø
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java"S "(\#
+	containerandroid.view.ViewGroup"__annotation*
+
+%21*
+
+%22*
+
+%23ﬁ
+€
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java   (-
+%24"
+__annotate**(
+&android.support.annotation.RequiresApi*)
+'
+savedInstanceStateandroid.os.Bundle 
+«
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java! !(
+%25"
+__annotate*
+java.lang.Override*)
+'
+savedInstanceStateandroid.os.Bundle€
+ÿ
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java"^ "(g
+%26"
+__annotate*'%
+#android.support.annotation.Nullable*)
+'
+savedInstanceStateandroid.os.Bundle«
+ƒ
+p
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java"o "(Å'
+savedInstanceStateandroid.os.Bundle"__annotation*
+
+%24*
+
+%25*
+
+%26*
+1*ú.
+1o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java# #(™
+ß
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java#" #(*&
+%0 hr.foi.air1817.botanico.R$layout"__id*
+""ç
+ä
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java#" #(>	
+%1int"__id*
+""ÌÍ
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java# #(Q
+%2android.view.View"Randroid.view.LayoutInflater#inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;*)
+'
+inflaterandroid.view.LayoutInflater*
+	
+%1int*%
+#
+	containerandroid.view.ViewGroup*
+""2#inflate(ILandroid/view/ViewGroup;Z)≠
+™
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java# #(R
+vandroid.view.View"__id*
+
+%2android.view.View∂
+≥
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java$ $(!
+
+%3void"Dbutterknife.ButterKnife#bind(Ljava/lang/Object;Landroid/view/View;)V*"
+butterknife.ButterKnife*75
+3hr.foi.air1817.botanico.fragments.PlantListFragment*
+
+vandroid.view.Viewíè
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java&: &(G
+%4android.app.Activity"8android.app.Fragment#getActivity()Landroid/app/Activity;*75
+3hr.foi.air1817.botanico.fragments.PlantListFragment2getActivity()ÿ’
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java&& &(93
+%5-android.support.v7.widget.LinearLayoutManager"-android.support.v7.widget.LinearLayoutManager°
+û
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java&" &(H
+%6"Pandroid.support.v7.widget.LinearLayoutManager#<init>(Landroid/content/Context;)V*5
+3
+%5-android.support.v7.widget.LinearLayoutManager*
+
+%4android.app.ActivityÁ
+‰
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java& &(I4
+llm-android.support.v7.widget.LinearLayoutManager"__id*5
+3
+%5-android.support.v7.widget.LinearLayoutManagerÛ
+
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java' '(,
+%7&android.support.v7.widget.RecyclerView"__id*I*G5
+3hr.foi.air1817.botanico.fragments.PlantListFragment"
+recyclerView§°
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java' '(*
+
+%8void"pandroid.support.v7.widget.RecyclerView#setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V*.
+,
+%7&android.support.v7.widget.RecyclerView*6
+4
+llm-android.support.v7.widget.LinearLayoutManager2HsetLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)Û
+
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java* *(,
+%9&android.support.v7.widget.RecyclerView"__id*I*G5
+3hr.foi.air1817.botanico.fragments.PlantListFragment"
+recyclerViewìê
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java*> *(K
+%10android.app.Activity"8android.app.Fragment#getActivity()Landroid/app/Activity;*75
+3hr.foi.air1817.botanico.fragments.PlantListFragment2getActivity()òï
+p
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java*t *(Ä
+%11android.content.Context":android.app.Fragment#getContext()Landroid/content/Context;*75
+3hr.foi.air1817.botanico.fragments.PlantListFragment2getContext()ˇ
+¸
+p
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java*M *(Å0
+%12)hr.foi.air1817.botanico.PlantRoomDatabase"Ñhr.foi.air1817.botanico.PlantRoomDatabase#getPlantRoomDatabase(Landroid/content/Context;)Lhr/foi/air1817/botanico/PlantRoomDatabase;*-"+
+)hr.foi.air1817.botanico.PlantRoomDatabase* 
+
+%11android.content.Context∂≥
+p
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java*M *(å'
+%13 hr.foi.air1817.botanico.PlantDao"Vhr.foi.air1817.botanico.PlantRoomDatabase#plantDao()Lhr/foi/air1817/botanico/PlantDao;*2
+0
+%12)hr.foi.air1817.botanico.PlantRoomDatabase2
+plantDao()àÖ
+p
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java*M *(õ
+%14java.util.List"?hr.foi.air1817.botanico.PlantDao#getAllPlants()Ljava/util/List;*)
+'
+%13 hr.foi.air1817.botanico.PlantDao2getAllPlants()Û
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java*$ *(=A
+%15:hr.foi.air1817.botanico.adapters.PlantsRecyclerViewAdapter":hr.foi.air1817.botanico.adapters.PlantsRecyclerViewAdapterÂ
+‚
+p
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java*  *(ú
+%16"jhr.foi.air1817.botanico.adapters.PlantsRecyclerViewAdapter#<init>(Landroid/app/Activity;Ljava/util/List;)V*C
+A
+%15:hr.foi.air1817.botanico.adapters.PlantsRecyclerViewAdapter*
+
+%10android.app.Activity*
+
+%14java.util.Listõò
+p
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java* *(ù
+%17void"dandroid.support.v7.widget.RecyclerView#setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V*.
+,
+%9&android.support.v7.widget.RecyclerView*C
+A
+%15:hr.foi.air1817.botanico.adapters.PlantsRecyclerViewAdapter2<setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)"ã
+o
+eC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\PlantListFragment.java+ +(
+
+vandroid.view.View:'
+inflaterandroid.view.LayoutInflater:#
+	containerandroid.view.ViewGroup:'
+savedInstanceStateandroid.os.BundleB75
+3hr.foi.air1817.botanico.fragments.PlantListFragment

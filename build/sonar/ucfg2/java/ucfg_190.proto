@@ -1,0 +1,55 @@
+
+\hr.foi.air1817.botanico.helpers.Converters#dateToTimestamp(Ljava/util/Date;)Ljava/lang/Long;
+__unknown_file ("paramAnnotations*Â
+2f
+\C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\helpers\Converters.java% ()·´
+f
+\C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\helpers\Converters.java% (3
+
+%2long"java.util.Date#getTime()J*
+
+datejava.util.Date2	getTime()•
+’
+f
+\C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\helpers\Converters.java% (3
+%0java.lang.Long"__id*
+
+
+%2long*
+1*Ž
+3f
+\C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\helpers\Converters.java ("›
+˜
+f
+\C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\helpers\Converters.java ("
+%0java.lang.Long"__id*
+
+%1
+<nulltype>*
+1*é
+paramAnnotationsf
+\C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\helpers\Converters.java& (1È
+Å
+f
+\C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\helpers\Converters.java (
+%3"
+__annotate*/-
++android.arch.persistence.room.TypeConverter*
+
+datejava.util.Date™
+–
+f
+\C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\helpers\Converters.java, (0
+datejava.util.Date"__annotation*
+
+%3*
+2
+3*î
+1f
+\C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\helpers\Converters.java (4"€
+f
+\C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\helpers\Converters.java (4
+
+%0java.lang.Long:
+datejava.util.DateB.",
+*hr.foi.air1817.botanico.helpers.Converters

@@ -1,0 +1,7 @@
+organization=nperic1-github
+projectKey=nperic1_Botanico
+serverUrl=https://sonarcloud.io
+serverVersion=7.6.0.21426
+dashboardUrl=https://sonarcloud.io/dashboard?id=nperic1_Botanico
+ceTaskId=AWif5OfXOqjMBJ_aVWgD
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWif5OfXOqjMBJ_aVWgD

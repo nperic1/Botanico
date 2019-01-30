@@ -1,0 +1,84 @@
+
+˜hr.foi.air1817.botanico.fragments.InfoFragment#onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+__unknown_file ("paramAnnotations*ã	
+paramAnnotationsj
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\InfoFragment.java (eÄ
+Á
+j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\InfoFragment.java (
+%3"
+__annotate*
+java.lang.Override*)
+'
+inflaterandroid.view.LayoutInflater®
+«
+j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\InfoFragment.java, (4'
+inflaterandroid.view.LayoutInflater"__annotation*
+
+%3À
+½
+j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\InfoFragment.java (
+%4"
+__annotate*
+java.lang.Override*%
+#
+	containerandroid.view.ViewGroupª
+§
+j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\InfoFragment.java@ (I#
+	containerandroid.view.ViewGroup"__annotation*
+
+%4Ä
+Á
+j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\InfoFragment.java (
+%5"
+__annotate*
+java.lang.Override*)
+'
+savedInstanceStateandroid.os.Bundle®
+«
+j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\InfoFragment.javaR (d'
+savedInstanceStateandroid.os.Bundle"__annotation*
+
+%5*
+1*Á
+1j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\InfoFragment.java (¥
+¢
+j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\InfoFragment.java" (*&
+%0 hr.foi.air1817.botanico.R$layout"__id*
+""ˆ
+…
+j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\InfoFragment.java" (8	
+%1int"__id*
+""èå
+j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\InfoFragment.java (K
+%2android.view.View"Randroid.view.LayoutInflater#inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;*)
+'
+inflaterandroid.view.LayoutInflater*
+	
+%1int*%
+#
+	containerandroid.view.ViewGroup*
+""2#inflate(ILandroid/view/ViewGroup;Z)¨
+¥
+j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\InfoFragment.java (L
+vandroid.view.View"__id*
+
+%2android.view.View"†
+j
+`C:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\fragments\InfoFragment.java (
+
+vandroid.view.View:'
+inflaterandroid.view.LayoutInflater:#
+	containerandroid.view.ViewGroup:'
+savedInstanceStateandroid.os.BundleB20
+.hr.foi.air1817.botanico.fragments.InfoFragment

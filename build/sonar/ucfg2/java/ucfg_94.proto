@@ -1,0 +1,52 @@
+
+Xhr.foi.air1817.botanico.entities.Plant#equals(Lhr/foi/air1817/botanico/entities/Plant;)Z
+__unknown_file ("6*Õ
+2b
+XC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\entities\Plant.java[ [("l
+b
+XC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\entities\Plant.java[ [(
+""*å
+3b
+XC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\entities\Plant.javaY Y(óð
+b
+XC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\entities\Plant.javaY! Y(8	
+%3int"9hr.foi.air1817.botanico.entities.Plant#getImageCounter()I*1
+/
+plant&hr.foi.air1817.botanico.entities.Plant2getImageCounter()*
+2
+1*×
+4b
+XC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\entities\Plant.javaX X(åâ
+b
+XC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\entities\Plant.javaX X('
+%2float"1hr.foi.air1817.botanico.entities.Plant#getTemp()F*1
+/
+plant&hr.foi.air1817.botanico.entities.Plant2	getTemp()*
+3
+1*ß
+5b
+XC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\entities\Plant.javaW W(íê
+b
+XC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\entities\Plant.javaW W(/
+%1float"5hr.foi.air1817.botanico.entities.Plant#getHumidity()F*1
+/
+plant&hr.foi.air1817.botanico.entities.Plant2getHumidity()*
+4
+1*Ù
+6b
+XC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\entities\Plant.javaV V(çä
+b
+XC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\entities\Plant.javaV V()
+%0float"2hr.foi.air1817.botanico.entities.Plant#getLight()F*1
+/
+plant&hr.foi.air1817.botanico.entities.Plant2
+getLight()*
+5
+1*Õ
+1b
+XC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\entities\Plant.java] ]("l
+b
+XC:\Users\Mirna\Desktop\AIR\app\src\main\java\hr\foi\air1817\botanico\entities\Plant.java] ](
+"":/
+plant&hr.foi.air1817.botanico.entities.PlantB*(
+&hr.foi.air1817.botanico.entities.Plant
