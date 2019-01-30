@@ -49,14 +49,7 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
 
         BotanicoNotificationManager.getInstance(getApplicationContext()).createChannel();
 
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         initializeLayout();
-
         initializeNavigationManager();
 
         if(NavigationManager.getInstance().navigationItems.size() == 0){
@@ -67,15 +60,13 @@ public class MainActivity extends AppCompatActivity implements android.app.Fragm
             NavigationManager.getInstance().addItem(new HelpFragment(), R.id.static_group);
         }
 
-
-        Log.d("test", String.valueOf(NavigationManager.getInstance().navigationItems.size()));
-        Log.d("test", String.valueOf(NavigationManager.getInstance().navigationItems.get(0).getItemName(getApplicationContext())));
-
         startMainModule();
 
         mFm = getFragmentManager();
         mFm.addOnBackStackChangedListener(this);
         GalleryItem.DohvatiSlike(PlantRoomDatabase.getPlantRoomDatabase(getApplicationContext()).plantDao().getAllPlants(), getApplicationContext());
+
+
 
     }
 
